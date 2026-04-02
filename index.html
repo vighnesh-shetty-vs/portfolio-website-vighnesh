@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vighnesh Shetty | Fintech Data Analyst & API Engineer</title>
+    <meta name="description"
+        content="Portfolio of Vighnesh Shetty, Fintech Data Analyst and API Engineer specializing in Machine Learning, Risk Analytics, and Business Intelligence." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#00E5FF',
+                        accentDim: '#00b8cc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --accent: #00E5FF;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: #000000;
+            color: #f5f5f7;
+            overflow-x: hidden;
+        }
+
+        .mesh-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .mesh-bg::before,
+        .mesh-bg::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+        }
+
+        .mesh-bg::before {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            left: -200px;
+            background: var(--accent);
+            animation: driftA 20s ease-in-out infinite alternate;
+        }
+
+        .mesh-bg::after {
+            width: 500px;
+            height: 500px;
+            bottom: -100px;
+            right: -100px;
+            background: #4F46E5;
+            animation: driftB 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes driftA {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        @keyframes driftB {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100px, -50px);
+            }
+        }
+
+        .glass {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .hero-name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .premium-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 229, 255, 0.05);
+        }
+
+        .project-card {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            margin-top: 6px;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom Scrollbar for Modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-accent selection:text-black">
+
+    <div class="mesh-bg"></div>
+
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#hero" class="font-mono text-accent font-bold tracking-widest text-sm">VS.</a>
+
+            <div class="hidden lg:flex gap-6 text-sm font-medium text-white/60">
+                <a href="#cv" class="hover:text-white transition-colors">CV</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#hackathons" class="hover:text-white transition-colors">Hackathons</a>
+                <a href="#certifications" class="hover:text-white transition-colors">Certs</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white/70 text-xl"><i
+                    class="fa-solid fa-bars"></i></button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-b border-white/10 flex-col py-4 px-6 gap-4 text-sm font-medium">
+            <a href="#cv" class="text-white/60 hover:text-accent">CV</a>
+            <a href="#projects" class="text-white/60 hover:text-accent">Projects</a>
+            <a href="#hackathons" class="text-white/60 hover:text-accent">Hackathons</a>
+            <a href="#certifications" class="text-white/60 hover:text-accent">Certifications</a>
+            <a href="#experience" class="text-white/60 hover:text-accent">Experience</a>
+        </div>
+    </nav>
+
+    <section id="hero"
+        class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
+        <div
+            class="glass px-4 py-2 rounded-full border-white/10 text-xs font-mono text-white/70 mb-8 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            Seeking 6-month Internship (May 2026)
+        </div>
+
+        <h1 class="hero-name mb-4">Vighnesh Shetty</h1>
+        <p class="text-accent tracking-widest text-xs md:text-sm uppercase font-semibold mb-8">
+            Fintech Data Analyst &nbsp;|&nbsp; API Engineer &nbsp;|&nbsp; Quantitative Analytics
+        </p>
+
+        <p class="max-w-2xl text-white/50 text-base md:text-lg leading-relaxed font-light mb-12">
+            With over 2 years engineering core banking APIs and scaling payment infrastructure at CSB Bank,
+            I bridge the gap between traditional backend systems and modern, AI-driven financial risk modeling.
+        </p>
+
+        <div class="flex gap-4 mb-16">
+            <a href="https://www.linkedin.com/in/vighnesh-shetty" target="_blank"
+                class="w-12 h-12 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent hover:border-accent/50 transition-all">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/vighnesh-shetty-vs" target="_blank"
+                class="w-12 h-12 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent hover:border-accent/50 transition-all">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="mailto:vighneshshetty20@gmail.com"
+                class="w-12 h-12 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent hover:border-accent/50 transition-all">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="cv" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Role-Based CVs</h2>
+                <p class="text-white/40">Download the résumé that best fits your opening.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 fade-up">
+                <a href="Vighnesh_Shetty_Data_Analyst_CV_2026.pdf" download
+                    class="premium-card glass rounded-3xl p-8 block group">
+                    <i class="fa-solid fa-chart-pie text-2xl text-accent mb-6 bg-accent/10 p-4 rounded-2xl"></i>
+                    <h3 class="text-2xl font-bold mb-3">Data Analyst CV</h3>
+                    <p class="text-white/50 text-sm mb-8 leading-relaxed">
+                        Focused on BI, Predictive Analytics, and Data Engineering. Highlights K-Means segmentation,
+                        Logistic Regression, and full-stack Streamlit apps.
+                    </p>
+                    <div
+                        class="flex items-center gap-2 text-sm font-semibold text-accent group-hover:translate-x-2 transition-transform">
+                        Download PDF <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="Vighnesh_Shetty_Payments_Engineer_Internship_May2026.pdf" download
+                    class="premium-card glass rounded-3xl p-8 block group">
+                    <i class="fa-solid fa-shield-halved text-2xl text-accent mb-6 bg-accent/10 p-4 rounded-2xl"></i>
+                    <h3 class="text-2xl font-bold mb-3">Payments & Risk CV</h3>
+                    <p class="text-white/50 text-sm mb-8 leading-relaxed">
+                        Tailored for Fintech and Quant roles. Showcases UPI/SWIFT infrastructure, Basel III stress
+                        testing, XGBoost credit scoring, and SHAP explainable AI.
+                    </p>
+                    <div
+                        class="flex items-center gap-2 text-sm font-semibold text-accent group-hover:translate-x-2 transition-transform">
+                        Download PDF <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="relative z-10 py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Selected Projects</h2>
+
+                <div class="flex flex-wrap justify-center gap-2">
+                    <button
+                        class="filter-btn active px-5 py-2 rounded-full text-sm font-medium glass text-white hover:border-accent/50"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
+                        data-filter="fintech">FinTech & Risk</button>
+                    <button
+                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
+                        data-filter="ml">Machine Learning</button>
+                    <button
+                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
+                        data-filter="bi">Business Intelligence</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6" id="project-grid">
+
+                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="fintech ml">
+                    <h3 class="text-xl font-bold mb-3">AlphaWiz Enterprise Platform</h3>
+                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
+                        Financial intelligence platform automating loan underwriting with XGBoost and SHAP. Includes a
+                        Basel III-aligned stress testing module to simulate economic shocks and monitor capital
+                        adequacy.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span
+                            class="tech-tag">Basel III</span><span class="tech-tag">Streamlit</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-brands fa-github"></i> Source</a>
+                        <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-solid fa-link"></i> Live Demo</a>
+                        <button onclick="openGallery(['/assets/AlphaWiz/executive_overview.jpg'])"
+                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                            <i class="fa-regular fa-images"></i> View Gallery
+                        </button>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="fintech ml">
+                    <h3 class="text-xl font-bold mb-3">AlphaSense: Multi-Asset NLP Terminal</h3>
+                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
+                        Enterprise-grade algorithmic trading terminal fusing real-time unstructured NLP sentiment with
+                        high-frequency technical momentum indicators. Focused on European markets (CAC 40, DAX) for
+                        sub-minute algorithmic trade decisioning.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tech-tag">Quant Research</span><span class="tech-tag">NLP</span><span
+                            class="tech-tag">Market Data</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New"
+                            target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-brands fa-github"></i> Source</a>
+                        <button onclick="openGallery(['/assets/AlphaSense/image_1.jpg'])"
+                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                            <i class="fa-regular fa-images"></i> View Gallery
+                        </button>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="bi">
+                    <h3 class="text-xl font-bold mb-3">MoneyWiz CRM Dashboard</h3>
+                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
+                        Full-stack CRM featuring K-Means customer segmentation and Linear Regression sales forecasting.
+                        Transforms raw sales data into actionable cross-sell opportunities.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tech-tag">Streamlit</span><span class="tech-tag">K-Means</span><span
+                            class="tech-tag">Plotly</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="https://github.com/vighnesh-shetty-vs/MoneyWiz-CRM-NewUpdate" target="_blank"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-brands fa-github"></i> Source</a>
+                        <a href="https://moneywiz-crm-newupdate-bexgwqs8fhq96q5aks7anm.streamlit.app/" target="_blank"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-solid fa-link"></i> Live Demo</a>
+                        <button
+                            onclick="openGallery(['https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000'])"
+                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                            <i class="fa-regular fa-images"></i> View Gallery
+                        </button>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="bi">
+                    <h3 class="text-xl font-bold mb-3">Telco Customer Churn AI Predictor</h3>
+                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
+                        Predicts telecom customer churn using a Logistic Regression model enhanced with SMOTE to handle
+                        class imbalance. Provides real‑time churn predictions, probability scores, and explainable AI
+                        insights.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tech-tag">Streamlit</span><span class="tech-tag">SMOTE</span><span
+                            class="tech-tag">Logistic Regression</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-brands fa-github"></i> Source</a>
+                        <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/"
+                            target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-solid fa-link"></i> Live Demo</a>
+                        <button onclick="openGallery(['/assets/Telco/Sample_High_Risk_customer_1.jpg'])"
+                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                            <i class="fa-regular fa-images"></i> View Gallery
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="hackathons" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Hackathons & Competitions</h2>
+                <p class="text-white/40">Solving real-world business problems under pressure.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+
+                <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
+                    <div class="h-48 bg-black/50 relative group">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800"
+                            alt="BNP Paribas Hackathon"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div
+                            class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-blue-400 border-blue-400/30">
+                            <i class="fa-solid fa-medal"></i> Winner
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">CGI / BNP Paribas</h3>
+                        <p class="text-accent text-sm mb-4">Financial Persona Segmentation</p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">
+                            Developed and pitched a data-driven solution to segment financial personas for targeted
+                            banking products.
+                        </p>
+                        <button
+                            onclick="openGallery(['https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1000'])"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-regular fa-images"></i> View Photos/Video</button>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
+                    <div class="h-48 bg-black/50 relative group">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=800"
+                            alt="L'Oreal Hackathon"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div
+                            class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-yellow-500 border-yellow-500/30">
+                            <i class="fa-solid fa-trophy"></i> Participant
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">L'Oréal Sustainable AI</h3>
+                        <p class="text-accent text-sm mb-4">Skin Condition Classification</p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">
+                            Leveraged machine learning to classify skin conditions while analyzing Environmental,
+                            Social, and Governance (ESG) metrics.
+                        </p>
+                        <button
+                            onclick="openGallery(['https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1000'])"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-regular fa-images"></i> View Photos/Video</button>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
+                    <div class="h-48 bg-black/50 relative group">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                            alt="Betclic Hackathon"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div
+                            class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-green-400 border-green-400/30">
+                            <i class="fa-solid fa-code"></i> Participant
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Betclic Hackathon</h3>
+                        <p class="text-accent text-sm mb-4">Hybrid SVD Recommender</p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">
+                            Engineered a Hybrid Singular Value Decomposition (SVD) recommender system to personalize
+                            user experiences.
+                        </p>
+                        <button
+                            onclick="openGallery(['https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000'])"
+                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                class="fa-regular fa-images"></i> View Photos/Video</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="relative z-10 py-24 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Certifications</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
+                    <i class="fa-brands fa-microsoft text-3xl text-blue-400 mb-4"></i>
+                    <h4 class="font-bold text-sm mb-1">Microsoft Certified:</h4>
+                    <p class="text-xs text-white/50">Microsoft Azure AI-900 </p>
+                </div>
+
+                <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
+                    <i class="fa-brands fa-google text-3xl text-green-500 mb-4"></i>
+                    <h4 class="font-bold text-sm mb-1">Microsoft Certified:</h4>
+                    <p class="text-xs text-white/50"> Data Analyst Associate</p>
+                </div>
+
+                <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
+                    <i class="fa-solid fa-chart-line text-3xl text-purple-400 mb-4"></i>
+                    <h4 class="font-bold text-sm mb-1">Java Full Stack Developer Programme</h4>
+                    <p class="text-xs text-white/50">NIIT Limited</p>
+                </div>
+
+                <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
+                    <i class="fa-solid fa-chess-knight text-3xl text-yellow-500 mb-4"></i>
+                    <h4 class="font-bold text-sm mb-1">Competitive Strategy</h4>
+                    <p class="text-xs text-white/50">Business Operations</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Experience & Education</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-mono text-sm text-accent mb-8 uppercase tracking-widest">Experience</h3>
+
+                    <div class="flex gap-4 mb-10 fade-up">
+                        <div class="flex flex-col items-center">
+                            <div class="timeline-dot"></div>
+                            <div class="w-px h-full bg-white/10 mt-2"></div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/40 font-mono mb-1">Mar 2023 – Jul 2025</p>
+                            <h4 class="text-lg font-bold">Manager - Data & API Engineering</h4>
+                            <p class="text-accent/80 text-sm mb-3">CSB Bank</p>
+                            <ul class="text-sm text-white/60 leading-relaxed list-disc pl-4 space-y-2">
+                                <li>Spearheaded API lifecycle ensuring 99.9% data availability.</li>
+                                <li>Led migration of 300+ .NET APIs to IBM platform, reducing latency by 40%.</li>
+                                <li>Engineered PL/SQL scripts reducing production errors by 25%.</li>
+                                <li>Developed BI wrapper APIs cutting manual reporting time by 50%.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 fade-up">
+                        <div class="flex flex-col items-center">
+                            <div class="timeline-dot bg-white/20 shadow-none"></div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/40 font-mono mb-1">May 2022 – Nov 2022</p>
+                            <h4 class="text-lg font-bold">Trainee Business Analyst</h4>
+                            <p class="text-white/60 text-sm mb-3">Tech Vision System</p>
+                            <ul class="text-sm text-white/60 leading-relaxed list-disc pl-4 space-y-2">
+                                <li>Translated ERP business requirements into actionable technical workflows (SRS).</li>
+                                <li>Created interactive data dashboards and wireframes for stakeholders.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-mono text-sm text-accent mb-8 uppercase tracking-widest">Education</h3>
+
+                    <div class="glass p-6 rounded-2xl mb-6 fade-up relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
+                        <p class="text-xs text-white/40 font-mono mb-1">2025 – 2027</p>
+                        <h4 class="text-base font-bold">MSc Data Analytics for Business</h4>
+                        <p class="text-accent/80 text-sm mb-2">KEDGE Business School, Bordeaux</p>
+                        <p class="text-xs text-white/60 leading-relaxed">
+                            <strong>Topics:</strong> Data Visualization, Machine Learning, Data Management, AI and SGDs.
+                        </p>
+                    </div>
+
+                    <div class="glass p-6 rounded-2xl mb-6 fade-up">
+                        <p class="text-xs text-white/40 font-mono mb-1">Graduated 2021</p>
+                        <h4 class="text-base font-bold">Bachelor of Engineering, CS</h4>
+                        <p class="text-white/60 text-sm mb-2">Visvesvaraya Technological University</p>
+                        <p class="text-xs text-white/60 leading-relaxed">
+                            <strong>Topics:</strong> Engineering Mathematics, DBMS - SQL, Java, C++, Web Design,
+                            Software Testing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="relative z-10 py-24 px-6 border-t border-white/5">
+        <div class="max-w-2xl mx-auto text-center fade-up">
+            <h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
+            <p class="text-white/50 mb-10">Currently in Bordeaux, open to opportunities across France, Amsterdam,
+                London, or remote.</p>
+
+            <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col items-center">
+                <i class="fa-regular fa-calendar text-3xl text-accent mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Book a Coffee Chat</h3>
+                <p class="text-sm text-white/50 mb-6">Replace this box with your Calendly embed snippet!</p>
+                <a href="mailto:vighneshshetty20@gmail.com"
+                    class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-accent transition-colors">
+                    Email Me directly
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-8 text-xs font-mono text-white/30 border-t border-white/5">
+        <p>© 2026 Vighnesh Shetty. Designed for the Future of Finance.</p>
+    </footer>
+
+    <div id="image-modal"
+        class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
+        <div class="absolute top-6 right-6 z-[110]">
+            <button onclick="closeGallery()"
+                class="text-white/50 hover:text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+        <div class="w-full max-w-5xl px-4 py-8 max-h-screen overflow-y-auto modal-scroll">
+            <div id="modal-gallery" class="flex flex-col gap-6">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+
+        // Fade Up Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Project Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'text-white', 'border-accent/50');
+                    b.classList.add('text-white/60');
+                });
+                btn.classList.add('active', 'text-white', 'border-accent/50');
+                btn.classList.remove('text-white/60');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            if (card.style.opacity === '0') {
+                                card.style.display = 'none';
+                            }
+                        }, 400);
+                    }
+                });
+            });
+        });
+
+        // Modal Gallery Logic
+        const modal = document.getElementById('image-modal');
+        const galleryContainer = document.getElementById('modal-gallery');
+
+        function openGallery(imageUrls) {
+            // Clear existing content
+            galleryContainer.innerHTML = '';
+
+            // Build new content
+            imageUrls.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.className = "w-full rounded-2xl border border-white/10 shadow-2xl";
+                img.loading = "lazy";
+                galleryContainer.appendChild(img);
+            });
+
+            // Show Modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Small delay to allow flex to render before applying opacity transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }, 10);
+        }
+
+        function closeGallery() {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }, 300); // Matches the duration-300 class
+        }
+
+        // Close modal on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeGallery();
+            }
+        });
+    </script>
+</body>
+
+</html>
