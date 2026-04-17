@@ -317,7 +317,7 @@
                         data-filter="fintech">FinTech & Risk</button>
                     <button
                         class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
-                        data-filter="backend">API & Backend</button>
+                        data-filter="backend">Data Analyst</button>
                     <button
                         class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
                         data-filter="ml">Machine Learning</button>
@@ -332,25 +332,32 @@
                 <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
                     data-category="fintech backend">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000"
-                            alt="API Infrastructure"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <video src="./assets/Tableau/Project_Demo.mp4" autoplay loop muted
+                            class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity"></video>
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Enterprise Payment API Gateway</h3>
+                        <h3 class="text-xl font-bold mb-3">U.S. Trade Dependency & Risk Analytics (Tableau)</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Robust microservices architecture orchestrating high-throughput UPI and SWIFT payment
-                            settlements. Secured via OAuth2/JWT and engineered to enforce ACID properties across
-                            distributed ledgers.
+                            Analyzed a 2M+ row U.S. Trade dataset (2016-2021) to evaluate supply chain
+                            vulnerabilities.Designed interactive Tableau dashboards to uncover structural risks, modal
+                            lock-in, and demand accumulation.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Impact:</strong> Handled 10k+ TPS with 99.9% uptime, utilizing IBM API Connect and
                             .NET Core.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">IBM API Connect</span><span class="tech-tag">.NET Core</span><span
-                                class="tech-tag">OAuth2</span><span class="tech-tag">PL/SQL</span>
+                            <span class="tech-tag">Tableau</span><span class="tech-tag">Microsoft Excel</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <button onclick="openGallery(['./assets/Tableau/Project_Demo.mp4'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -567,11 +574,17 @@
                     <i class="fa-solid fa-chart-line text-3xl text-purple-400 mb-4"></i>
                     <h4 class="font-bold text-sm mb-1">Java Full Stack</h4>
                     <p class="text-xs text-white/50">NIIT Limited</p>
+                    <span
+                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">Verify
+                        Badge</span>
                 </div>
                 <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
                     <i class="fa-solid fa-chess-knight text-3xl text-yellow-500 mb-4"></i>
                     <h4 class="font-bold text-sm mb-1">Competitive Strategy</h4>
                     <p class="text-xs text-white/50">Business Operations</p>
+                    <span
+                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">Verify
+                        Badge</span>
                 </div>
             </div>
         </div>
