@@ -44,12 +44,28 @@
             background-color: #000000;
             color: #f5f5f7;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dynamic Mouse Tracking Glow */
+        #cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: opacity 0.3s ease;
         }
 
         .mesh-bg {
             position: fixed;
             inset: 0;
-            z-index: 0;
+            z-index: -1;
             pointer-events: none;
             overflow: hidden;
         }
@@ -167,7 +183,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Custom Scrollbar for Modal */
         .modal-scroll::-webkit-scrollbar {
             width: 6px;
         }
@@ -183,8 +198,9 @@
     </style>
 </head>
 
-<body class="antialiased selection:bg-accent selection:text-black">
+<body class="antialiased selection:bg-accent selection:text-black relative">
 
+    <div id="cursor-glow"></div>
     <div class="mesh-bg"></div>
 
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
@@ -301,6 +317,9 @@
                         data-filter="fintech">FinTech & Risk</button>
                     <button
                         class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
+                        data-filter="backend">API & Backend</button>
+                    <button
+                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
                         data-filter="ml">Machine Learning</button>
                     <button
                         class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
@@ -308,105 +327,141 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6" id="project-grid">
+            <div class="grid md:grid-cols-2 gap-8" id="project-grid">
 
-                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="fintech ml">
-                    <h3 class="text-xl font-bold mb-3">AlphaWiz Enterprise Platform</h3>
-                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
-                        Financial intelligence platform automating loan underwriting with XGBoost and SHAP. Includes a
-                        Basel III-aligned stress testing module to simulate economic shocks and monitor capital
-                        adequacy.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span
-                            class="tech-tag">Basel III</span><span class="tech-tag">Streamlit</span>
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech backend">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000"
+                            alt="API Infrastructure"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     </div>
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank"
-                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-brands fa-github"></i> Source</a>
-                        <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank"
-                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-solid fa-link"></i> Live Demo</a>
-                        <button
-                            onclick="openGallery(['./assets/AlphaWiz/executive_overview.png', './assets/AlphaWiz/loan_origination_1.png', './assets/AlphaWiz/loan_origination_2.png', './assets/AlphaWiz/loan_origination_3.png', './assets/AlphaWiz/loan_origination_4.png', './assets/AlphaWiz/retenstion_campaign_manager.png', './assets/AlphaWiz/stress_testing_1.png', './assets/AlphaWiz/stress_testing_2.png'])"
-                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                            <i class="fa-regular fa-images"></i> View Gallery
-                        </button>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Enterprise Payment API Gateway</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Robust microservices architecture orchestrating high-throughput UPI and SWIFT payment
+                            settlements. Secured via OAuth2/JWT and engineered to enforce ACID properties across
+                            distributed ledgers.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Impact:</strong> Handled 10k+ TPS with 99.9% uptime, utilizing IBM API Connect and
+                            .NET Core.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">IBM API Connect</span><span class="tech-tag">.NET Core</span><span
+                                class="tech-tag">OAuth2</span><span class="tech-tag">PL/SQL</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="fintech ml">
-                    <h3 class="text-xl font-bold mb-3">AlphaSense: Multi-Asset NLP Terminal</h3>
-                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
-                        Enterprise-grade algorithmic trading terminal fusing real-time unstructured NLP sentiment with
-                        high-frequency technical momentum indicators. Focused on European markets (CAC 40, DAX) for
-                        sub-minute algorithmic trade decisioning.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="tech-tag">Quant Research</span><span class="tech-tag">NLP</span><span
-                            class="tech-tag">Market Data</span>
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/AlphaWiz/executive_overview.png"
+                            onerror="this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1000'"
+                            alt="AlphaWiz Dashboard"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     </div>
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New"
-                            target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-brands fa-github"></i> Source</a>
-                        <button
-                            onclick="openGallery(['./assets/AlphaSense/image_1.png', './assets/AlphaSense/image_2.png', './assets/AlphaSense/image_3.png'])"
-                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                            <i class="fa-regular fa-images"></i> View Gallery
-                        </button>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="bi">
-                    <h3 class="text-xl font-bold mb-3">MoneyWiz CRM Dashboard</h3>
-                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
-                        Full-stack CRM featuring K-Means customer segmentation and Linear Regression sales forecasting.
-                        Transforms raw sales data into actionable cross-sell opportunities.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="tech-tag">Streamlit</span><span class="tech-tag">K-Means</span><span
-                            class="tech-tag">Plotly</span>
-                    </div>
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://github.com/vighnesh-shetty-vs/MoneyWiz-CRM-NewUpdate" target="_blank"
-                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-brands fa-github"></i> Source</a>
-                        <a href="https://moneywiz-crm-newupdate-bexgwqs8fhq96q5aks7anm.streamlit.app/" target="_blank"
-                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-solid fa-link"></i> Live Demo</a>
-                        <button
-                            onclick="openGallery(['https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000'])"
-                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                            <i class="fa-regular fa-images"></i> View Gallery
-                        </button>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">AlphaWiz Enterprise Platform</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            End-to-end loan underwriting automation platform. Features PySpark-driven ETL pipelines
+                            feeding an XGBoost classification model, with SHAP integration for regulatory AI
+                            explainability. Includes a Basel III stress testing module.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Impact:</strong> Designed to optimize capital adequacy and reduce manual credit
+                            review times by up to 40%.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">PySpark</span><span class="tech-tag">XGBoost</span><span
+                                class="tech-tag">SHAP</span><span class="tech-tag">Basel III</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-link"></i> Live Demo</a>
+                            <button
+                                onclick="openGallery(['./assets/AlphaWiz/executive_overview.png', './assets/AlphaWiz/loan_origination_1.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="premium-card glass rounded-3xl p-8 project-card fade-up" data-category="bi">
-                    <h3 class="text-xl font-bold mb-3">Telco Customer Churn AI Predictor</h3>
-                    <p class="text-white/50 text-sm mb-6 leading-relaxed">
-                        Predicts telecom customer churn using a Logistic Regression model enhanced with SMOTE to handle
-                        class imbalance. Provides real‑time churn predictions, probability scores, and explainable AI
-                        insights.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="tech-tag">Streamlit</span><span class="tech-tag">SMOTE</span><span
-                            class="tech-tag">Logistic Regression</span>
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/AlphaSense/image_1.png"
+                            onerror="this.src='https://images.unsplash.com/photo-1642543492481-44e81e391452?auto=format&fit=crop&q=80&w=1000'"
+                            alt="AlphaSense Terminal"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     </div>
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank"
-                            class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-brands fa-github"></i> Source</a>
-                        <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/"
-                            target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-solid fa-link"></i> Live Demo</a>
-                        <button
-                            onclick="openGallery(['./assets/Telco/Sample_High_Risk_customer_1.png', './assets/Telco/Sample_High_Risk_customer_2.png', './assets/Telco/Sample_Low_Risk_customer_1.png', './assets/Telco/Sample_Low_Risk_customer_2.png'])"
-                            class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                            <i class="fa-regular fa-images"></i> View Gallery
-                        </button>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">AlphaSense: Multi-Asset NLP Terminal</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Algorithmic trading engine for European markets (CAC 40, DAX). Ingests high-frequency market
+                            data via WebSockets and fuses it with real-time FinBERT transformer sentiment analysis for
+                            sub-minute trade decisioning.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Architecture:</strong> WebSocket streaming -> Kafka Event Bus -> FinBERT Sentiment
+                            Engine -> Signal Generation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">FinBERT (NLP)</span><span class="tech-tag">WebSockets</span><span
+                                class="tech-tag">Quant Research</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New"
+                                target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <button
+                                onclick="openGallery(['./assets/AlphaSense/image_1.png', './assets/AlphaSense/image_2.png', './assets/AlphaSense/image_3.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="bi">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
+                            alt="MoneyWiz Dashboard"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">MoneyWiz CRM Dashboard</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Full-stack CRM visualizing raw sales data transformations. Engineered robust SQL/Pandas data
+                            pipelines to feed K-Means segmentation algorithms, revealing actionable customer cohorts.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Impact:</strong> Identifies hidden spending patterns to strategically optimize
+                            targeted marketing and upselling campaigns.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">SQL/Pandas</span><span class="tech-tag">K-Means</span><span
+                                class="tech-tag">Plotly</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/MoneyWiz-CRM-NewUpdate" target="_blank"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://moneywiz-crm-newupdate-bexgwqs8fhq96q5aks7anm.streamlit.app/"
+                                target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-link"></i> Live Demo</a>
+                        </div>
                     </div>
                 </div>
 
@@ -420,9 +475,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Hackathons & Competitions</h2>
                 <p class="text-white/40">Solving real-world business problems under pressure.</p>
             </div>
-
             <div class="grid lg:grid-cols-3 gap-8">
-
                 <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
                     <div class="h-48 bg-black/50 relative group">
                         <img src="./assets/Hackathon/BNP/BNP.jpg" alt="BNP Paribas Hackathon"
@@ -435,10 +488,8 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">CGI / BNP Paribas</h3>
                         <p class="text-accent text-sm mb-4">Financial Persona Segmentation</p>
-                        <p class="text-white/50 text-sm leading-relaxed mb-4">
-                            Developed and pitched a data-driven solution to segment financial personas for targeted
-                            banking products.
-                        </p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Developed and pitched a data-driven
+                            solution to segment financial personas for targeted banking products.</p>
                         <button onclick="openGallery(['./assets/Hackathon/BNP/BNP.jpg'])"
                             class="text-xs font-semibold text-white/70 hover:text-accent"><i
                                 class="fa-regular fa-images"></i> View Photos/Video</button>
@@ -457,10 +508,8 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">L'Oréal Sustainable AI</h3>
                         <p class="text-accent text-sm mb-4">Skin Condition Classification</p>
-                        <p class="text-white/50 text-sm leading-relaxed mb-4">
-                            Leveraged machine learning to classify skin conditions while analyzing Environmental,
-                            Social, and Governance (ESG) metrics.
-                        </p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Leveraged machine learning to classify
+                            skin conditions while analyzing Environmental, Social, and Governance (ESG) metrics.</p>
                         <button onclick="openGallery(['./assets/Hackathon/Loreal/Loreal.jpg'])"
                             class="text-xs font-semibold text-white/70 hover:text-accent"><i
                                 class="fa-regular fa-images"></i> View Photos/Video</button>
@@ -479,16 +528,13 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Betclic Hackathon</h3>
                         <p class="text-accent text-sm mb-4">Hybrid SVD Recommender</p>
-                        <p class="text-white/50 text-sm leading-relaxed mb-4">
-                            Engineered a Hybrid Singular Value Decomposition (SVD) recommender system to personalize
-                            user experiences.
-                        </p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Engineered a Hybrid Singular Value
+                            Decomposition (SVD) recommender system to personalize user experiences.</p>
                         <button onclick="openGallery(['./assets/Hackathon/Betclic/App_Recommender_Demo.mp4'])"
                             class="text-xs font-semibold text-white/70 hover:text-accent"><i
                                 class="fa-regular fa-images"></i> View Photos/Video</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -498,33 +544,35 @@
             <div class="text-center mb-16 fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Certifications</h2>
             </div>
-
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-
-                <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
+                <a href="#" target="_blank"
+                    class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card hover:bg-white/5 transition-colors cursor-pointer">
                     <i class="fa-brands fa-microsoft text-3xl text-blue-400 mb-4"></i>
                     <h4 class="font-bold text-sm mb-1">Microsoft Certified:</h4>
-                    <p class="text-xs text-white/50">Microsoft Azure AI-900 </p>
-                </div>
-
-                <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
+                    <p class="text-xs text-white/50 mb-3">Microsoft Azure AI-900 </p>
+                    <span
+                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">Verify
+                        Badge</span>
+                </a>
+                <a href="#" target="_blank"
+                    class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card hover:bg-white/5 transition-colors cursor-pointer">
                     <i class="fa-brands fa-google text-3xl text-green-500 mb-4"></i>
                     <h4 class="font-bold text-sm mb-1">Microsoft Certified:</h4>
-                    <p class="text-xs text-white/50"> Data Analyst Associate</p>
-                </div>
-
+                    <p class="text-xs text-white/50 mb-3"> Data Analyst Associate</p>
+                    <span
+                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">Verify
+                        Badge</span>
+                </a>
                 <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
                     <i class="fa-solid fa-chart-line text-3xl text-purple-400 mb-4"></i>
-                    <h4 class="font-bold text-sm mb-1">Java Full Stack Developer Programme</h4>
+                    <h4 class="font-bold text-sm mb-1">Java Full Stack</h4>
                     <p class="text-xs text-white/50">NIIT Limited</p>
                 </div>
-
                 <div class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card">
                     <i class="fa-solid fa-chess-knight text-3xl text-yellow-500 mb-4"></i>
                     <h4 class="font-bold text-sm mb-1">Competitive Strategy</h4>
                     <p class="text-xs text-white/50">Business Operations</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -549,10 +597,11 @@
                             <h4 class="text-lg font-bold">Manager - Data & API Engineering</h4>
                             <p class="text-accent/80 text-sm mb-3">CSB Bank</p>
                             <ul class="text-sm text-white/60 leading-relaxed list-disc pl-4 space-y-2">
-                                <li>Spearheaded API lifecycle ensuring 99.9% data availability.</li>
-                                <li>Led migration of 300+ .NET APIs to IBM platform, reducing latency by 40%.</li>
+                                <li>Spearheaded API lifecycle ensuring 99.9% data availability for core banking nodes.
+                                </li>
+                                <li>Led migration of 300+ .NET APIs to IBM API Connect, reducing latency by 40%.</li>
+                                <li>Architected scalable integrations for UPI and SWIFT payment gateways.</li>
                                 <li>Engineered PL/SQL scripts reducing production errors by 25%.</li>
-                                <li>Developed BI wrapper APIs cutting manual reporting time by 50%.</li>
                             </ul>
                         </div>
                     </div>
@@ -608,11 +657,15 @@
 
             <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col items-center">
                 <i class="fa-regular fa-calendar text-3xl text-accent mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Book a Coffee Chat</h3>
-                <p class="text-sm text-white/50 mb-6">Replace this box with your Calendly embed snippet!</p>
+                <h3 class="text-xl font-bold mb-4">Book a Coffee Chat</h3>
+                <a href="https://calendly.com/" target="_blank"
+                    class="bg-accent/10 text-accent border border-accent/20 px-6 py-3 rounded-full font-bold text-sm hover:bg-accent hover:text-black transition-colors mb-4">
+                    Schedule via Calendly
+                </a>
+                <p class="text-sm text-white/50 my-2">or</p>
                 <a href="mailto:vighneshshetty20@gmail.com"
-                    class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-accent transition-colors">
-                    Email Me directly
+                    class="text-white hover:text-accent font-medium text-sm transition-colors border-b border-transparent hover:border-accent pb-1">
+                    Email me directly <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
                 </a>
             </div>
         </div>
@@ -631,12 +684,19 @@
             </button>
         </div>
         <div class="w-full max-w-5xl px-4 py-8 max-h-screen overflow-y-auto modal-scroll">
-            <div id="modal-gallery" class="flex flex-col gap-6">
-            </div>
+            <div id="modal-gallery" class="flex flex-col gap-6"></div>
         </div>
     </div>
 
     <script>
+        // Custom Mouse Tracking Glow
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursor-glow');
+            if (glow) {
+                glow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+            }
+        });
+
         // Navbar Scroll
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
@@ -679,7 +739,7 @@
                     const categories = card.getAttribute('data-category').split(' ');
 
                     if (filter === 'all' || categories.includes(filter)) {
-                        card.style.display = 'block';
+                        card.style.display = 'flex';
                         setTimeout(() => {
                             card.style.opacity = '1';
                             card.style.transform = 'scale(1)';
@@ -702,22 +762,17 @@
         const galleryContainer = document.getElementById('modal-gallery');
 
         function openGallery(mediaUrls) {
-            // Clear existing content
             galleryContainer.innerHTML = '';
-
-            // Build new content with logic for videos vs images
             mediaUrls.forEach(url => {
-                // Check if the URL is a video file
                 const isVideo = url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
-
                 if (isVideo) {
                     const video = document.createElement('video');
                     video.src = url;
                     video.className = "w-full rounded-2xl border border-white/10 shadow-2xl";
-                    video.controls = true; // Added controls so users can pause/play
+                    video.controls = true;
                     video.autoplay = true;
                     video.loop = true;
-                    video.muted = true; // Muted required for autoplay in most browsers
+                    video.muted = true;
                     galleryContainer.appendChild(video);
                 } else {
                     const img = document.createElement('img');
@@ -728,14 +783,12 @@
                 }
             });
 
-            // Show Modal
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            // Small delay to allow flex to render before applying opacity transition
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modal.classList.add('opacity-100');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
             }, 10);
         }
 
@@ -745,18 +798,13 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-                document.body.style.overflow = 'auto'; // Restore background scrolling
-
-                // Stop any playing videos when modal closes
+                document.body.style.overflow = 'auto';
                 galleryContainer.innerHTML = '';
-            }, 300); // Matches the duration-300 class
+            }, 300);
         }
 
-        // Close modal on background click
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeGallery();
-            }
+            if (e.target === modal) closeGallery();
         });
     </script>
 </body>
