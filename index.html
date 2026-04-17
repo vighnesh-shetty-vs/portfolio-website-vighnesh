@@ -16,6 +16,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -28,6 +30,15 @@
                         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
+                    animation: {
+                        'badge-pulse': 'badge-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        'badge-pulse': {
+                            '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+                            '50%': { opacity: .9, transform: 'scale(1.05)' },
+                        }
+                    }
                 }
             }
         }
@@ -440,6 +451,83 @@
                 </div>
 
                 <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/Telco/Sample_High_Risk_customer_1.png"
+                            onerror="this.src='https://images.unsplash.com/photo-1642543492481-44e81e391452?auto=format&fit=crop&q=80&w=1000'"
+                            alt="AlphaSense Terminal"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Telco Customer Churn AI Predictor</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            This project predicts telecom customer churn using a Logistic Regression model enhanced with
+                            SMOTE to handle class imbalance. The app is fully deployed in Streamlit and provides
+                            real‑time
+                            churn predictions, probability scores, and explainable AI insights.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Architecture:</strong> WebSocket streaming -> Kafka Event Bus -> FinBERT Sentiment
+                            Engine -> Signal Generation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">Logistic Regression</span><span class="tech-tag">SMOTE</span><span
+                                class="tech-tag">Streamlit</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/"
+                                target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-link"></i> Live Demo</a>
+                            <button
+                                onclick="openGallery(['./assets/Telco/Sample_High_Risk_customer_1.png', './assets/Telco/Sample_High_Risk_customer_2.png', './assets/Telco/Sample_Low_Risk_customer_1.png', './assets/Telco/Sample_Low_Risk_customer_2.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <video src="./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4"
+                            autoplay loop muted playsinline
+                            class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"></video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Credit Default Prediction Engine</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Probability of Default (PD) model using Logistic Regression. Applied SMOTE for handling
+                            imbalanced datasets and integrated SHAP (XAI) for regulatory-compliant risk decision
+                            explanations.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Architecture:</strong> WebSocket streaming -> Kafka Event Bus -> FinBERT Sentiment
+                            Engine -> Signal Generation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">Python</span><span class="tech-tag">SMOTE</span><span
+                                class="tech-tag">LogReg</span><span class="tech-tag">XAI</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/Real-Time-Financial-Fraud-Detection-Engine"
+                                target="_blank" class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <button
+                                onclick="openGallery(['./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
                     data-category="bi">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
@@ -483,14 +571,17 @@
                 <p class="text-white/40">Solving real-world business problems under pressure.</p>
             </div>
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
+
+                <div id="confetti-target"
+                    class="premium-card glass rounded-3xl overflow-hidden fade-up relative border-2 border-yellow-500/40 shadow-[0_0_30px_rgba(234,179,8,0.15)]">
                     <div class="h-48 bg-black/50 relative group">
                         <img src="./assets/Hackathon/BNP/BNP.jpg" alt="BNP Paribas Hackathon"
-                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
 
                         <div
-                            class="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-black px-4 py-1.5 rounded-full text-xs font-extrabold shadow-[0_0_20px_rgba(245,158,11,0.8)] border border-yellow-200 transform hover:scale-105 transition-transform flex items-center gap-1 z-10">
-                            <i class="fa-solid fa-trophy"></i> 1ST PLACE WINNER
+                            class="absolute -top-1 right-6 bg-red-600 text-white px-4 py-2 rounded-b-xl font-black text-sm shadow-[0_10px_20px_rgba(220,38,38,0.6)] flex flex-col items-center gap-1 z-10 animate-badge-pulse border-x-2 border-b-2 border-red-400">
+                            <i class="fa-solid fa-trophy text-yellow-300 text-xl"></i>
+                            <span class="tracking-widest uppercase">1st Place</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -774,10 +865,9 @@
         });
 
         // Modal Gallery Logic
-        const modal = document.getElementById('image-modal');
-        const galleryContainer = document.getElementById('modal-gallery');
-
         function openGallery(mediaUrls) {
+            const modal = document.getElementById('image-modal');
+            const galleryContainer = document.getElementById('modal-gallery');
             galleryContainer.innerHTML = '';
             mediaUrls.forEach(url => {
                 const isVideo = url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
@@ -809,6 +899,8 @@
         }
 
         function closeGallery() {
+            const modal = document.getElementById('image-modal');
+            const galleryContainer = document.getElementById('modal-gallery');
             modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
             setTimeout(() => {
@@ -819,9 +911,51 @@
             }, 300);
         }
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeGallery();
+        document.getElementById('image-modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('image-modal')) closeGallery();
         });
+
+        // ==========================================
+        // Scroll-Triggered Confetti Animation Logic
+        // ==========================================
+        const targetCard = document.getElementById('confetti-target');
+        let confettiFired = false;
+
+        const confettiObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // When the card is at least 50% visible and confetti hasn't fired yet
+                if (entry.isIntersecting && !confettiFired) {
+                    confettiFired = true;
+
+                    const duration = 2500;
+                    const animationEnd = Date.now() + duration;
+                    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+
+                    function randomInRange(min, max) {
+                        return Math.random() * (max - min) + min;
+                    }
+
+                    const interval = setInterval(function () {
+                        const timeLeft = animationEnd - Date.now();
+
+                        if (timeLeft <= 0) {
+                            return clearInterval(interval);
+                        }
+
+                        const particleCount = 50 * (timeLeft / duration);
+
+                        // Emit confetti from slightly left and slightly right of center
+                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#FFD700', '#FFA500', '#FF4500'] }));
+                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#FFD700', '#FFA500', '#FF4500'] }));
+                    }, 250);
+                }
+            });
+        }, { threshold: 0.5 }); // Triggers when 50% of the card is visible
+
+        if (targetCard) {
+            confettiObserver.observe(targetCard);
+        }
+
     </script>
 </body>
 
