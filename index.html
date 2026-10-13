@@ -347,25 +347,92 @@
             <div class="grid md:grid-cols-2 gap-8" id="project-grid">
 
                 <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="bi fintech">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/BankAnalytics/dbt_lineage.png" alt="Retail Bank Analytics: dbt Warehouse + Power BI" loading="lazy"
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Retail Bank Analytics: dbt Warehouse + Power BI</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Real data from a Czech bank (1.06M transactions, 682 loans) modelled in dbt on DuckDB: 17 models, 55 tests including daily balance reconciliation and a no-leakage check, 10 SQL business questions, and a 3-page Power BI report (21 DAX measures, row-level security).
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Finding:</strong> all 27 loans granted to clients who had already been overdrawn defaulted, vs 7.5% for everyone else. The bank had that information before lending.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">SQL</span><span class="tech-tag">dbt</span><span class="tech-tag">DuckDB</span><span class="tech-tag">Power BI / DAX</span><span class="tech-tag">CI</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/bank-analytics-dbt-powerbi" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs.github.io/bank-analytics-dbt-powerbi/" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-sitemap"></i> dbt docs</a>
+                            <button onclick="openGallery(['./assets/BankAnalytics/dbt_lineage.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
                     data-category="fintech ml">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <video src="./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4" autoplay loop muted playsinline preload="metadata"
-                            class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <img src="./assets/CreditScorecard/model_charts.png" alt="Credit Card Default Scorecard" loading="lazy"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Credit Card Default Scorecard</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Bank-style points scorecard on 30,000 real card customers: monotonic WoE binning, IV selection, logistic regression scaled to points (PDO 20), validated with Gini, KS, calibration and PSI, plus a fairness check. 7 unit tests and CI.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Result:</strong> test Gini 0.51, KS 0.40. The cost-based cut-off approves 54% of customers at an 11% default rate vs 22% overall.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">Credit risk</span><span class="tech-tag">WoE / IV</span><span class="tech-tag">Logistic regression</span><span class="tech-tag">Model validation</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/credit-risk-scorecard" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <button onclick="openGallery(['./assets/CreditScorecard/model_charts.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/Real_Time_Financial_Fraud_Detection_Engine/poster.png" alt="" loading="lazy"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <button onclick="openGallery(['./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])" aria-label="Play demo video"
+                            class="absolute inset-0 z-10 flex items-center justify-center">
+                            <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Card Fraud Detection Engine</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            XGBoost classifier trained on 284,807 European card transactions (0.17% fraud). Handles class imbalance with scale_pos_weight and explains every flagged transaction with SHAP. A Streamlit dashboard replays held-out transactions as a live feed and shows the true label next to each decision.
+                            XGBoost classifier on 284,807 European card transactions (0.17% fraud) with class weighting. Each blocked transaction is explained by its top SHAP feature, and a Streamlit dashboard replays held-out transactions next to their true labels.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Why it matters:</strong> at 0.17% fraud, accuracy is meaningless, so the model is judged on recall and precision for the fraud class.
+                            <strong>Result:</strong> PR-AUC 0.86 on the full test set; at a 0.9 threshold it catches 82% of frauds with 90% precision.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
                             <span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span class="tech-tag">Imbalanced data</span><span class="tech-tag">Streamlit</span>
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Real-Time-Financial-Fraud-Detection-Engine" target="_blank" rel="noopener"
+                            <a href="https://github.com/vighnesh-shetty-vs/card-fraud-detection-xgboost-shap" target="_blank" rel="noopener"
                                 class="text-xs font-semibold text-white/70 hover:text-accent"><i
                                     class="fa-brands fa-github"></i> Source</a>
                             <button onclick="openGallery(['./assets/Fraud/image_1.png', './assets/Fraud/image_3.png', './assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])"
@@ -377,97 +444,28 @@
                 </div>
 
                 <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="fintech ml">
+                    data-category="bi">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/AlphaWiz/executive_overview.png" alt="AlphaWiz: Banking Risk &amp; Retention Platform" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <img src="./assets/ABTest/experiment_charts.png" alt="Neobank Onboarding A/B Test" loading="lazy"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">AlphaWiz: Banking Risk & Retention Platform</h3>
+                        <h3 class="text-xl font-bold mb-3">Neobank Onboarding A/B Test</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Three modules on 100k synthetic customer records: XGBoost probability-of-default scoring with SHAP explanations, a Basel III capital stress test that alerts below the 10.5% threshold, and a churn-based retention manager. SQLAlchemy data layer, Streamlit UI.
+                            End-to-end experiment: SQL cleaning of messy event data (duplicates, double exposure, bots), pre-registered power analysis, sample-ratio check, guardrail metrics and Bonferroni-corrected segments. Synthetic data with a known true effect, so the method is checked in CI.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Note:</strong> built on generated data, so the business figures are illustrative.
+                            <strong>Decision:</strong> KYC completion +3.1 pp, but the fraud guardrail rose significantly, so the memo recommends an Android-only rollout with an extra fraud check.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span class="tech-tag">Basel III</span><span class="tech-tag">SQLAlchemy</span>
+                            <span class="tech-tag">A/B testing</span><span class="tech-tag">Statistics</span><span class="tech-tag">SQL</span><span class="tech-tag">Product analytics</span>
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank" rel="noopener"
+                            <a href="https://github.com/vighnesh-shetty-vs/fintech-onboarding-ab-test" target="_blank" rel="noopener"
                                 class="text-xs font-semibold text-white/70 hover:text-accent"><i
                                     class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/AlphaWiz/executive_overview.png', './assets/AlphaWiz/loan_origination_1.png', './assets/AlphaWiz/stress_testing_1.png', './assets/AlphaWiz/retenstion_campaign_manager.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="fintech ai">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/AlphaSense/image_1.png" alt="AlphaSense: News Sentiment Trading Terminal" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">AlphaSense: News Sentiment Trading Terminal</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Combines VADER sentiment on financial news headlines with 1-minute price data from yfinance and RSI, SMA and volatility signals, across equities (CAC 40, DAX), FX and crypto.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Pipeline:</strong> news headlines &rarr; VADER sentiment &rarr; technical indicators &rarr; combined buy/hold/sell signal.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">NLP (VADER)</span><span class="tech-tag">yfinance</span><span class="tech-tag">Plotly</span><span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-alphasense-nlp-trading-signal-eng-app-hrpqrm.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/AlphaSense/image_1.png', './assets/AlphaSense/image_2.png', './assets/AlphaSense/image_3.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="ml">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/Telco/Sample_High_Risk_customer_1.png" alt="Telco Customer Churn Predictor" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Telco Customer Churn Predictor</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Logistic regression with SMOTE oversampling on the IBM Telco dataset (7,043 customers). The app returns a churn probability for any customer profile and shows which features drive it.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> ranks customers by churn risk so retention offers go to the right people.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Logistic Regression</span><span class="tech-tag">SMOTE</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/Telco/Sample_High_Risk_customer_1.png', './assets/Telco/Sample_High_Risk_customer_2.png', './assets/Telco/Sample_Low_Risk_customer_1.png', './assets/Telco/Sample_Low_Risk_customer_2.png'])"
+                            <button onclick="openGallery(['./assets/ABTest/experiment_charts.png'])"
                                 class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
                                 <i class="fa-regular fa-images"></i> View Gallery
                             </button>
@@ -479,13 +477,13 @@
                     data-category="bi fintech">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
                         <img src="./assets/AeroCarbon/dashboard.png" alt="AeroCarbon Exchange: Aviation Carbon Credits" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">AeroCarbon Exchange: Aviation Carbon Credits</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Group startup pitch with a working MVP. Set an airline's flights, fuel burn, fleet and route savings and SAF blend, and the app computes baseline vs actual CO&#8322;, the credits earned (1 tonne avoided = 1 credit) and their value, broken down by lever, plus a per-flight audit ledger.
+                            Group startup pitch with a Streamlit MVP I built. It models an airline's baseline vs actual CO&#8322; from fleet, route and SAF levers, turns avoided tonnes into credits and revenue, and shows attribution by lever and a per-flight audit ledger.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Business model:</strong> SaaS licence per airline plus a 2&ndash;5% fee on every credit sold, aimed at CORSIA and EU ETS compliance. The MVP runs on simulated data.
@@ -512,8 +510,8 @@
                     data-category="ai">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
                         <img src="./assets/DocuMind/risk_audit_1.png" alt="DocuMind: Contract Risk &amp; Document QA" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">DocuMind: Contract Risk & Document Q&amp;A</h3>
@@ -541,23 +539,127 @@
                     </div>
                 </div>
 
+            </div>
+
+            <h3 class="text-2xl font-bold tracking-tight mt-20 mb-8 text-center fade-up">More projects</h3>
+            <div class="grid md:grid-cols-2 gap-8" id="more-grid">
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/AlphaWiz/executive_overview.png" alt="AlphaWiz: Banking Risk &amp; Retention Platform" loading="lazy"
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">AlphaWiz: Banking Risk & Retention Platform</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Three modules on 100k synthetic customer records: XGBoost probability-of-default scoring with SHAP explanations, a Basel III capital stress test, and a churn-based retention manager.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Note:</strong> built on generated data, so the business figures are illustrative.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span class="tech-tag">Basel III</span><span class="tech-tag">SQLAlchemy</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-link"></i> Live Demo</a>
+                            <button onclick="openGallery(['./assets/AlphaWiz/executive_overview.png', './assets/AlphaWiz/loan_origination_1.png', './assets/AlphaWiz/stress_testing_1.png', './assets/AlphaWiz/retenstion_campaign_manager.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="fintech ai">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/AlphaSense/image_1.png" alt="AlphaSense: News Sentiment Trading Terminal" loading="lazy"
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">AlphaSense: News Sentiment Trading Terminal</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            VADER sentiment on financial news headlines combined with 1-minute yfinance prices and RSI, SMA and volatility signals across equities (CAC 40, DAX), FX and crypto.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Pipeline:</strong> headlines &rarr; sentiment &rarr; technical indicators &rarr; buy/hold/sell signal.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">NLP (VADER)</span><span class="tech-tag">yfinance</span><span class="tech-tag">Plotly</span><span class="tech-tag">Streamlit</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-alphasense-nlp-trading-signal-eng-app-hrpqrm.streamlit.app/" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-link"></i> Live Demo</a>
+                            <button onclick="openGallery(['./assets/AlphaSense/image_1.png', './assets/AlphaSense/image_2.png', './assets/AlphaSense/image_3.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
+                    data-category="ml">
+                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
+                        <img src="./assets/Telco/Sample_High_Risk_customer_1.png" alt="Telco Customer Churn Predictor" loading="lazy"
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Telco Customer Churn Predictor</h3>
+                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                            Logistic regression on 7,043 telecom customers, compared against a contract-type rule and two rebalancing methods. The riskiest 30% of customers contain 65% of churners.
+                        </p>
+                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                            <strong>Finding:</strong> SMOTE did not improve ranking (AUC 0.83 either way); class weighting gives the same result more simply.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                            <span class="tech-tag">Logistic Regression</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Streamlit</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+                            <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/" target="_blank" rel="noopener"
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
+                                    class="fa-solid fa-link"></i> Live Demo</a>
+                            <button onclick="openGallery(['./assets/Telco/Sample_High_Risk_customer_1.png', './assets/Telco/Sample_Low_Risk_customer_1.png'])"
+                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
+                                <i class="fa-regular fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
                     data-category="ai bi">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
                         <img src="./assets/VoC/dashboard_1.png" alt="Voice of Customer Intelligence" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Voice of Customer Intelligence</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Upload customer reviews (CSV or Excel). Gemini tags each one with sentiment and topic, and Plotly dashboards track sentiment over time, surface recurring issues and suggest actions.
+                            Customer reviews in, Gemini tags each with sentiment and topic, and Plotly dashboards track trends and recurring issues.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Use:</strong> turns thousands of free-text reviews into a ranked list of problems to fix.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Gemini API</span><span class="tech-tag">Sentiment analysis</span><span class="tech-tag">Plotly</span><span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Gemini API</span><span class="tech-tag">Sentiment analysis</span><span class="tech-tag">Plotly</span>
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
                             <a href="https://github.com/vighnesh-shetty-vs/Voice_of_Customer_Intelligence" target="_blank" rel="noopener"
@@ -578,16 +680,16 @@
                     data-category="bi ml">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
                         <img src="./assets/MarketBasket/main.png" alt="Market Basket Analysis: Retail Bundles" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Market Basket Analysis: Retail Bundles</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            FP-Growth association rules (mlxtend) on the UCI Online Retail dataset (541,909 invoice lines), filterable by country. Ranks product pairs by lift and confidence in an opportunity matrix and recommends cross-sell items.
+                            FP-Growth association rules on the UCI Online Retail dataset (541,909 invoice lines) by country. In France, customers buy matching sets: skull cups and plates show 13.9x lift.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> picks bundles and shelf placements from what customers already buy together.
+                            <strong>Use:</strong> bundle and checkout-upsell candidates, to be validated with an A/B test.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
                             <span class="tech-tag">FP-Growth</span><span class="tech-tag">mlxtend</span><span class="tech-tag">Pandas</span><span class="tech-tag">Plotly</span>
@@ -611,16 +713,16 @@
                     data-category="bi ml">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
                         <img src="./assets/Segmentation/Image_1.png" alt="Customer Segmentation Dashboard" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Customer Segmentation Dashboard</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            K-Means clustering of mall customers on age, income and spending score, with the number of clusters checked by silhouette score and each segment profiled in an interactive dashboard.
+                            K-Means clustering of customers on age, income and spending score, cluster count checked by silhouette score, with each segment profiled in an interactive dashboard.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> gives marketing a named segment and a suggested action for each customer group.
+                            <strong>Use:</strong> gives marketing a named segment and a suggested action for each group.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
                             <span class="tech-tag">K-Means</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Plotly</span><span class="tech-tag">Streamlit</span>
@@ -643,14 +745,18 @@
                 <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
                     data-category="bi">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <video src="./assets/Tableau/Project_Demo.mp4" autoplay loop muted playsinline preload="metadata"
-                            class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <img src="./assets/Tableau/poster.png" alt="" loading="lazy"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                        <button onclick="openGallery(['./assets/Tableau/Project_Demo.mp4'])" aria-label="Play demo video"
+                            class="absolute inset-0 z-10 flex items-center justify-center">
+                            <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">U.S. Trade Dependency &amp; Risk Analytics</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Tableau dashboards over a 2M+ row U.S. trade dataset (2016&ndash;2021) that show where imports depend on few partners or transport modes, and where demand is building up.
+                            Tableau story over a 2M+ row U.S. trade dataset (2016&ndash;2021) showing where imports depend on few partners or transport modes.
                         </p>
                         <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Use:</strong> a supply-chain risk view for spotting concentration before it becomes a disruption.
@@ -732,8 +838,12 @@
 
                 <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
                     <div class="h-48 bg-black/50 relative group">
-                        <video src="./assets/Hackathon/Betclic/App_Recommender_Demo.mp4" autoplay loop muted playsinline
-                            class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity"></video>
+                        <img src="./assets/Hackathon/Betclic/poster.png" alt="Betclic hackathon recommender demo" loading="lazy"
+                            class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" />
+                        <button onclick="openGallery(['./assets/Hackathon/Betclic/App_Recommender_Demo.mp4'])" aria-label="Play demo video"
+                            class="absolute inset-0 z-10 flex items-center justify-center">
+                            <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
+                        </button>
                         <div
                             class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-green-400 border-green-400/30">
                             <i class="fa-solid fa-code"></i> Participant
