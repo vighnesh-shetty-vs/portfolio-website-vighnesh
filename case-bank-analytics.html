@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: Retail Bank Analytics | Vighnesh Shetty</title>
+    <meta name="description"
+        content="How a tested dbt warehouse on 1.06M real Czech bank transactions showed that every loan to an already-overdrawn client defaulted. SQL, dbt, DuckDB, Power BI." />
+    <link rel="canonical" href="https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/case-bank-analytics.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/case-bank-analytics.html" />
+    <meta property="og:title" content="The bank could have seen the defaults coming | Vighnesh Shetty" />
+    <meta property="og:description"
+        content="All 27 loans to already-overdrawn clients defaulted, vs 7.5% for everyone else. A tested dbt + Power BI case study on real bank data." />
+    <meta property="og:image" content="https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/assets/BankAnalytics/pbi_loan_risk.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%2300E5FF' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { accent: '#00E5FF', accentDim: '#00b8cc' },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/site.css" />
+</head>
+
+<body class="antialiased selection:bg-accent selection:text-black relative">
+
+    <div id="cursor-glow"></div>
+    <div class="mesh-bg"></div>
+
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html#case-study" class="text-sm text-white/70 hover:text-accent"><i class="fa-solid fa-arrow-left mr-2"></i>Portfolio</a>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="https://github.com/vighnesh-shetty-vs/bank-analytics-dbt-powerbi" target="_blank" rel="noopener"
+                    class="text-white/60 hover:text-white"><i class="fa-brands fa-github mr-1"></i><span class="hidden sm:inline">Repo</span></a>
+                <a href="index.html#cv"
+                    class="bg-accent text-black font-semibold px-4 py-1.5 rounded-full hover:bg-white transition-colors"><i class="fa-solid fa-download mr-1"></i> CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
+
+        <!-- Header -->
+        <header class="mb-16">
+            <p class="font-mono text-sm text-accent mb-4 uppercase tracking-widest">Case file 01 &middot; Retail bank analytics</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">The bank could have seen the defaults coming.</h1>
+            <p class="text-lg text-white/60 leading-relaxed mb-10">
+                Using only what a Czech retail bank knew on the day it approved each loan, a single warning sign
+                predicted every default in its group. Here is how I built the warehouse to prove it, and the tests that
+                stop the answer from being a data leak.
+            </p>
+
+            <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="glass rounded-2xl p-4">
+                    <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Data</dt>
+                    <dd>PKDD'99 &ldquo;Berka&rdquo; bank data, 1993&ndash;1998 (real, anonymised)</dd>
+                </div>
+                <div class="glass rounded-2xl p-4">
+                    <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Scale</dt>
+                    <dd>4,500 accounts &middot; 5,369 clients &middot; 1.06M transactions &middot; 682 loans</dd>
+                </div>
+                <div class="glass rounded-2xl p-4">
+                    <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Stack</dt>
+                    <dd>SQL &middot; dbt &middot; DuckDB &middot; Power BI (DAX) &middot; GitHub Actions</dd>
+                </div>
+                <div class="glass rounded-2xl p-4">
+                    <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Role</dt>
+                    <dd>Solo project &middot; Oct 2026</dd>
+                </div>
+            </dl>
+        </header>
+
+        <!-- TL;DR -->
+        <section class="glass rounded-3xl p-6 md:p-8 mb-20 border-accent/30 fade-up">
+            <p class="font-mono text-xs text-accent uppercase tracking-widest mb-4">TL;DR (30 seconds)</p>
+            <ul class="space-y-3 text-white/80">
+                <li class="flex gap-3"><i class="fa-solid fa-circle-exclamation text-red-400 mt-1"></i><span><strong class="text-white">All 27 loans</strong> given to clients who had already been overdrawn defaulted, versus <strong class="text-white">7.5%</strong> for everyone else.</span></li>
+                <li class="flex gap-3"><i class="fa-solid fa-magnifying-glass-chart text-accent mt-1"></i><span>Account behaviour predicts default far better than the local economy: default rates barely move with district unemployment.</span></li>
+                <li class="flex gap-3"><i class="fa-solid fa-shield-halved text-accent mt-1"></i><span>Every number comes from a warehouse with <strong class="text-white">55 tests in CI</strong>, including one that fails if any loan feature uses data from after the loan was granted.</span></li>
+            </ul>
+        </section>
+
+        <!-- 1. Question -->
+        <section class="mb-20 fade-up prose-case">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">01</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">The question</h2>
+            <p>
+                Overall, <strong>11.1% of this bank's loans default, and they hold 15.1% of the exposure</strong>. The
+                question a credit team actually cares about is narrower: <em>at the moment of approval</em>, was there
+                anything in the client's own account history that should have stopped the loan?
+            </p>
+            <p>
+                That &ldquo;at the moment of approval&rdquo; is the whole problem. This dataset is famous for a trap: the
+                guide that comes with it warns that &ldquo;balance ever negative&rdquo; separates good and bad loans
+                perfectly if you ignore time, because a client who stops paying goes negative <em>after</em> the loan.
+                A model built that way looks brilliant and is useless.
+            </p>
+        </section>
+
+        <!-- 2. Build -->
+        <section class="mb-20 fade-up">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">02</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">How I built it</h2>
+
+            <ol class="grid md:grid-cols-5 gap-3 mb-8 text-sm">
+                <li class="glass rounded-2xl p-4">
+                    <p class="font-mono text-xs text-accent mb-1">raw</p>
+                    <p class="font-semibold mb-1">8 source files</p>
+                    <p class="text-white/50 text-xs">Checksum- and row-count-verified download</p>
+                </li>
+                <li class="glass rounded-2xl p-4">
+                    <p class="font-mono text-xs text-accent mb-1">staging &middot; 8</p>
+                    <p class="font-semibold mb-1">Clean &amp; translate</p>
+                    <p class="text-white/50 text-xs">Types, dates, Czech codes to English, &lsquo;?&rsquo; to NULL</p>
+                </li>
+                <li class="glass rounded-2xl p-4">
+                    <p class="font-mono text-xs text-accent mb-1">intermediate &middot; 2</p>
+                    <p class="font-semibold mb-1">Point-in-time</p>
+                    <p class="text-white/50 text-xs">Loan features only from transactions before the grant date</p>
+                </li>
+                <li class="glass rounded-2xl p-4">
+                    <p class="font-mono text-xs text-accent mb-1">marts &middot; 7</p>
+                    <p class="font-semibold mb-1">Star schema</p>
+                    <p class="text-white/50 text-xs">Dims, facts and a month &times; district KPI table</p>
+                </li>
+                <li class="glass rounded-2xl p-4">
+                    <p class="font-mono text-xs text-accent mb-1">report</p>
+                    <p class="font-semibold mb-1">Power BI</p>
+                    <p class="text-white/50 text-xs">3 pages, 21 DAX measures, row-level security</p>
+                </li>
+            </ol>
+
+            <div class="prose-case">
+                <p>
+                    The staging layer does the unglamorous work: integer dates like <code>930105</code> become real dates,
+                    gender is decoded from Czech birth numbers (women have +50 on the month), and transaction codes such as
+                    <code>PRIJEM</code> or <code>VYBER KARTOU</code> are translated. Ten business questions are answered in
+                    SQL under <code>analyses/</code>, and the marts are exported for the Power BI report.
+                </p>
+                <p>
+                    The Power BI project is saved as PBIP, so the model and report are plain text under version control.
+                    I checked the DAX against the SQL: 682 loans, 11.1% default rate, 103.3M CZK exposure and 195.6M CZK of
+                    December 1998 deposits match exactly.
+                </p>
+            </div>
+            <button onclick="openGallery(['./assets/BankAnalytics/dbt_lineage.png'])"
+                class="mt-2 text-sm font-semibold text-accent hover:text-white bg-accent/10 px-4 py-2 rounded-lg transition-colors">
+                <i class="fa-solid fa-sitemap mr-1"></i> See the dbt lineage graph</button>
+        </section>
+
+        <!-- 3. Findings -->
+        <section class="mb-20">
+            <div class="fade-up">
+                <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">03</p>
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">What the data says</h2>
+            </div>
+
+            <div class="glass rounded-3xl p-6 md:p-8 mb-8 fade-up" data-explorer>
+                <p class="text-white/40 text-xs font-mono uppercase tracking-wider mb-4">Default rate by warning sign &middot; pick one</p>
+                <div class="flex flex-wrap gap-2 mb-8" role="tablist">
+                    <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="true" data-tab="overdrawn">Overdrawn before the loan</button>
+                    <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="false" data-tab="lowbal">Balance &lt; 5k CZK</button>
+                    <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="false" data-tab="afford">Affordability</button>
+                    <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="false" data-tab="unemp">Local unemployment</button>
+                </div>
+                <div data-panel="overdrawn" class="space-y-5">
+                    <div><div class="flex justify-between text-sm mb-2"><span>Clients already overdrawn (27 loans)</span><span class="font-mono text-red-400 font-bold">100%</span></div><div class="bar-track"><div class="bar-fill bg-red-500" data-w="100"></div></div></div>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Everyone else</span><span class="font-mono text-accent font-bold">7.5%</span></div><div class="bar-track"><div class="bar-fill bg-accent" data-w="7.5"></div></div></div>
+                </div>
+                <div data-panel="lowbal" class="space-y-5" hidden>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Balance below 5,000 CZK in the 90 days before</span><span class="font-mono text-red-400 font-bold">59%</span></div><div class="bar-track"><div class="bar-fill bg-red-500" data-w="59"></div></div></div>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Everyone else</span><span class="font-mono text-accent font-bold">7.8%</span></div><div class="bar-track"><div class="bar-fill bg-accent" data-w="7.8"></div></div></div>
+                </div>
+                <div data-panel="afford" class="space-y-5" hidden>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Least affordable quartile (payment / monthly income)</span><span class="font-mono text-red-400 font-bold">23.5%</span></div><div class="bar-track"><div class="bar-fill bg-red-500" data-w="23.5"></div></div></div>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Other three quartiles</span><span class="font-mono text-accent font-bold">6&ndash;9%</span></div><div class="bar-track"><div class="bar-fill bg-accent" data-w="9"></div></div></div>
+                </div>
+                <div data-panel="unemp" class="space-y-5" hidden>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Low-unemployment districts</span><span class="font-mono text-white/80 font-bold">10.1%</span></div><div class="bar-track"><div class="bar-fill bg-white/40" data-w="10.1"></div></div></div>
+                    <div><div class="flex justify-between text-sm mb-2"><span>Medium</span><span class="font-mono text-white/80 font-bold">12.8%</span></div><div class="bar-track"><div class="bar-fill bg-white/40" data-w="12.8"></div></div></div>
+                    <div><div class="flex justify-between text-sm mb-2"><span>High</span><span class="font-mono text-white/80 font-bold">10.6%</span></div><div class="bar-track"><div class="bar-fill bg-white/40" data-w="10.6"></div></div></div>
+                </div>
+                <p class="text-xs text-white/35 font-mono mt-6">All features use only transactions dated before each loan's grant date.</p>
+            </div>
+
+            <div class="prose-case fade-up">
+                <p><strong>Account behaviour is the signal.</strong> An overdraft before the loan, or a balance that dipped
+                    below 5,000 CZK in the previous 90 days, separates risky borrowers far better than anything about where
+                    they live. Affordability matters too, but only in the worst quartile.</p>
+                <p>The report also surfaced a few things outside credit risk:</p>
+                <ul>
+                    <li><strong>Longer loans</strong> default slightly more often (12% vs 8% for 12-month loans) and are much larger.</li>
+                    <li><strong>Card holders keep higher balances</strong> (gold-card accounts averaged 71.9k CZK in 1998 vs 33.4k without a card), yet cards carried only about 1% of outgoing money. Cash was still 75%.</li>
+                    <li><strong>Cash demand peaks</strong> in January, June and December, at 25&ndash;49% above the monthly average: useful for branch and ATM cash planning.</li>
+                    <li><strong>No loans went to account owners aged 65+</strong> (675 of them). That is either a lending policy or a gap worth asking about.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. Data quality -->
+        <section class="mb-20 fade-up">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">04</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Why you can trust the numbers: 55 tests</h2>
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold mb-2"><i class="fa-solid fa-scale-balanced text-accent mr-2"></i>Daily balance reconciliation</p>
+                    <p class="text-sm text-white/60">Each day's balance must equal the previous day's plus that day's net flow. It exposed two quirks in the source: intra-day order isn't recorded, and interest is rounded differently. 763,838 account-days reconcile exactly; 46,430 (5.7%) are off by at most 0.20 CZK. The test now allows any intra-day order and a 0.50 CZK tolerance.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold mb-2"><i class="fa-solid fa-clock-rotate-left text-accent mr-2"></i>No target leakage</p>
+                    <p class="text-sm text-white/60">A test fails the build if any loan feature uses a transaction on or after the grant date. This is what keeps the headline finding honest.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold mb-2"><i class="fa-solid fa-key text-accent mr-2"></i>Keys and codes</p>
+                    <p class="text-sm text-white/60"><code class="font-mono text-accent text-xs">unique</code>, <code class="font-mono text-accent text-xs">not_null</code> and <code class="font-mono text-accent text-xs">relationships</code> tests on every key, plus accepted values for every decoded code.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold mb-2"><i class="fa-solid fa-list-check text-accent mr-2"></i>Business rules</p>
+                    <p class="text-sm text-white/60">Loan amount = monthly payment &times; duration (true for all 682 loans); no transaction is dated before its account opened.</p>
+                </div>
+            </div>
+            <p class="text-sm text-white/50">All 55 run on every push in GitHub Actions, and the dbt docs are published from CI.</p>
+        </section>
+
+        <!-- 5. Report -->
+        <section class="mb-20 fade-up">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">05</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">The Power BI report</h2>
+            <div class="grid md:grid-cols-3 gap-4 mb-4">
+                <button onclick="openGallery(['./assets/BankAnalytics/pbi_overview.png'])" class="glass rounded-2xl overflow-hidden text-left group">
+                    <img src="./assets/BankAnalytics/pbi_overview.png" alt="Power BI overview page: KPI cards, inflow vs outflow, deposits by region" loading="lazy" class="w-full aspect-video object-cover object-top group-hover:opacity-80 transition-opacity" />
+                    <p class="p-3 text-sm"><strong>Overview</strong><span class="block text-xs text-white/50">KPIs, inflow vs outflow, regional scorecard</span></p>
+                </button>
+                <button onclick="openGallery(['./assets/BankAnalytics/pbi_loan_risk.png'])" class="glass rounded-2xl overflow-hidden text-left group">
+                    <img src="./assets/BankAnalytics/pbi_loan_risk.png" alt="Power BI loan risk page: default rate by overdraft history, duration and region" loading="lazy" class="w-full aspect-video object-cover object-top group-hover:opacity-80 transition-opacity" />
+                    <p class="p-3 text-sm"><strong>Loan Risk</strong><span class="block text-xs text-white/50">Default rate by overdraft history, duration, region</span></p>
+                </button>
+                <button onclick="openGallery(['./assets/BankAnalytics/pbi_customers.png'])" class="glass rounded-2xl overflow-hidden text-left group">
+                    <img src="./assets/BankAnalytics/pbi_customers.png" alt="Power BI customers page: card holders, loan uptake and age bands" loading="lazy" class="w-full aspect-video object-cover object-top group-hover:opacity-80 transition-opacity" />
+                    <p class="p-3 text-sm"><strong>Customers</strong><span class="block text-xs text-white/50">Card and loan uptake by age band</span></p>
+                </button>
+            </div>
+            <p class="text-sm text-white/50">Star schema of 6 tables with a marked date table; 21 measures including latest-month semi-additive balances,
+                <code class="font-mono text-accent text-xs">SAMEPERIODLASTYEAR</code> and <code class="font-mono text-accent text-xs">DIVIDE</code>-safe ratios; an RLS role
+                (<em>Regional Manager &ndash; Prague</em>); and an explicit en-US parse culture so it loads on a French Windows setup.</p>
+        </section>
+
+        <!-- 6. Recommendations -->
+        <section class="mb-20 fade-up">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">06</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">What I would tell the bank</h2>
+            <ol class="space-y-4">
+                <li class="glass rounded-2xl p-5 flex gap-4"><span class="font-mono text-accent font-bold">1</span><span class="text-white/75">Make <strong class="text-white">overdraft history</strong> and a <strong class="text-white">90-day low-balance flag</strong> hard checks at approval. Both are already in the bank's own data on the day of the decision.</span></li>
+                <li class="glass rounded-2xl p-5 flex gap-4"><span class="font-mono text-accent font-bold">2</span><span class="text-white/75">Review the affordability threshold for the <strong class="text-white">least affordable quartile</strong>, where defaults are roughly 3&times; the rest.</span></li>
+                <li class="glass rounded-2xl p-5 flex gap-4"><span class="font-mono text-accent font-bold">3</span><span class="text-white/75">Don't spend effort on district-level economic adjustments for retail loans; behaviour carries the signal.</span></li>
+                <li class="glass rounded-2xl p-5 flex gap-4"><span class="font-mono text-accent font-bold">4</span><span class="text-white/75">Ask whether excluding <strong class="text-white">customers aged 65+</strong> from lending is deliberate policy, and plan branch cash for the January, June and December peaks.</span></li>
+            </ol>
+        </section>
+
+        <!-- 7. Limitations -->
+        <section class="mb-20 fade-up prose-case">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">07</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Limitations</h2>
+            <ul>
+                <li><strong>Old data, one bank.</strong> 1993&ndash;1998 in one country; the patterns need re-checking on current data before anyone acts on them.</li>
+                <li><strong>Small group.</strong> The 100% default rate rests on 27 loans. It is a strong signal, not a precise estimate.</li>
+                <li><strong>Only approved loans.</strong> The data has no rejected applications, so it can't say how the flags would behave on clients the bank already turned away.</li>
+                <li><strong>Association, not cause.</strong> These are descriptive rates. A production scorecard would need a proper model, validation and monitoring (see my <a href="https://github.com/vighnesh-shetty-vs/credit-risk-scorecard" target="_blank" rel="noopener" class="text-accent hover:underline">credit scorecard project</a>).</li>
+            </ul>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="glass rounded-3xl p-8 text-center fade-up">
+            <h2 class="text-2xl font-bold mb-3">Run it yourself</h2>
+            <p class="text-white/50 mb-6 text-sm">Four commands rebuild everything: download, 17 models, 55 tests, analyses and Power BI exports.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://github.com/vighnesh-shetty-vs/bank-analytics-dbt-powerbi" target="_blank" rel="noopener"
+                    class="bg-accent text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-white transition-colors"><i class="fa-brands fa-github mr-1"></i> Source on GitHub</a>
+                <a href="https://vighnesh-shetty-vs.github.io/bank-analytics-dbt-powerbi/" target="_blank" rel="noopener"
+                    class="glass text-sm px-5 py-2.5 rounded-full hover:border-accent/50"><i class="fa-solid fa-sitemap mr-1"></i> dbt docs &amp; lineage</a>
+                <a href="https://github.com/vighnesh-shetty-vs/bank-analytics-dbt-powerbi/blob/main/docs/business_questions.md" target="_blank" rel="noopener"
+                    class="glass text-sm px-5 py-2.5 rounded-full hover:border-accent/50"><i class="fa-solid fa-list mr-1"></i> All 10 business questions</a>
+            </div>
+            <p class="mt-8 text-sm"><a href="index.html#projects" class="text-white/60 hover:text-accent"><i class="fa-solid fa-arrow-left mr-1"></i> Back to all projects</a></p>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 text-xs font-mono text-white/30 border-t border-white/5">
+        <p>© 2026 Vighnesh Shetty &middot; Paris &middot; <a href="mailto:vighneshshetty.2026@gmail.com" class="hover:text-accent">vighneshshetty.2026@gmail.com</a></p>
+    </footer>
+
+    <div id="image-modal" role="dialog" aria-modal="true" aria-label="Image viewer"
+        class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
+        <div class="absolute top-6 right-6 z-[110]">
+            <button onclick="closeGallery()" aria-label="Close"
+                class="text-white/50 hover:text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+        <div class="w-full max-w-5xl px-4 py-8 max-h-screen overflow-y-auto modal-scroll">
+            <div id="modal-gallery" class="flex flex-col gap-6"></div>
+        </div>
+    </div>
+
+    <script src="assets/site.js"></script>
+</body>
+
+</html>

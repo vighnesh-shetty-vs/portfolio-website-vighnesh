@@ -7,6 +7,37 @@
     <title>Vighnesh Shetty | Data Analyst, Fintech & Risk</title>
     <meta name="description"
         content="Vighnesh Shetty: data analyst with 2+ years in banking (CSB Bank), MSc Data Analytics for Business at KEDGE. Paris, available now for a 6-month internship." />
+    <link rel="canonical" href="https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/" />
+    <meta property="og:title" content="Vighnesh Shetty | Data Analyst, Fintech & Risk" />
+    <meta property="og:description"
+        content="2+ years in banking data at CSB Bank, MSc at KEDGE, 1st place at the CGI × BNP Paribas hackathon. Case studies in credit risk, fraud and bank analytics." />
+    <meta property="og:image" content="https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/assets/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%2300E5FF' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E" />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vighnesh Shetty",
+        "jobTitle": "Data Analyst",
+        "url": "https://vighnesh-shetty-vs.github.io/portfolio-website-vighnesh/",
+        "email": "mailto:vighneshshetty.2026@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "KEDGE Business School" },
+            { "@type": "CollegeOrUniversity", "name": "SMVITM (Visvesvaraya Technological University)" }
+        ],
+        "knowsAbout": ["SQL", "Python", "Power BI", "dbt", "Credit risk", "Fraud detection", "Machine learning"],
+        "sameAs": ["https://www.linkedin.com/in/vighnesh-shetty", "https://github.com/vighnesh-shetty-vs"]
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -15,24 +46,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        accent: '#00E5FF',
-                        accentDim: '#00b8cc',
-                    },
+                    colors: { accent: '#00E5FF', accentDim: '#00b8cc' },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
-                    animation: {
-                        'badge-pulse': 'badge-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
+                    animation: { 'badge-pulse': 'badge-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' },
                     keyframes: {
                         'badge-pulse': {
                             '0%, 100%': { opacity: 1, transform: 'scale(1)' },
@@ -43,170 +68,7 @@
             }
         }
     </script>
-
-    <style>
-        :root {
-            --accent: #00E5FF;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-        }
-
-        body {
-            background-color: #000000;
-            color: #f5f5f7;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Dynamic Mouse Tracking Glow */
-        #cursor-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 60%);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mesh-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .mesh-bg::before,
-        .mesh-bg::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-        }
-
-        .mesh-bg::before {
-            width: 600px;
-            height: 600px;
-            top: -200px;
-            left: -200px;
-            background: var(--accent);
-            animation: driftA 20s ease-in-out infinite alternate;
-        }
-
-        .mesh-bg::after {
-            width: 500px;
-            height: 500px;
-            bottom: -100px;
-            right: -100px;
-            background: #4F46E5;
-            animation: driftB 25s ease-in-out infinite alternate;
-        }
-
-        @keyframes driftA {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(100px, 100px);
-            }
-        }
-
-        @keyframes driftB {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(-100px, -50px);
-            }
-        }
-
-        .glass {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .hero-name {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.6) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .premium-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .premium-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: rgba(0, 229, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 229, 255, 0.05);
-        }
-
-        .project-card {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .tech-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 8px;
-            background: rgba(0, 229, 255, 0.05);
-            border: 1px solid rgba(0, 229, 255, 0.15);
-            color: var(--accent);
-        }
-
-        .timeline-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
-            margin-top: 6px;
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        nav.scrolled {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .modal-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .modal-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .modal-scroll::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/site.css" />
 </head>
 
 <body class="antialiased selection:bg-accent selection:text-black relative">
@@ -216,34 +78,41 @@
 
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#hero" class="font-mono text-accent font-bold tracking-widest text-sm">VS.</a>
+            <a href="#hero" class="font-mono text-accent font-bold tracking-widest text-sm" aria-label="Back to top">VS.</a>
 
-            <div class="hidden lg:flex gap-6 text-sm font-medium text-white/60">
-                <a href="#cv" class="hover:text-white transition-colors">CV</a>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/60">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#case-study" class="hover:text-white transition-colors">Case study</a>
                 <a href="#projects" class="hover:text-white transition-colors">Projects</a>
                 <a href="#hackathons" class="hover:text-white transition-colors">Hackathons</a>
-                <a href="#certifications" class="hover:text-white transition-colors">Certs</a>
                 <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#notes" class="hover:text-white transition-colors">Notes</a>
                 <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="#cv"
+                    class="ml-2 bg-accent text-black font-semibold px-4 py-1.5 rounded-full hover:bg-white transition-colors">
+                    <i class="fa-solid fa-download mr-1"></i> CV</a>
             </div>
 
-            <button id="mobile-menu-btn" class="lg:hidden text-white/70 text-xl"><i
-                    class="fa-solid fa-bars"></i></button>
+            <button id="mobile-menu-btn" class="lg:hidden text-white/70 text-xl" aria-label="Open menu"
+                aria-expanded="false" aria-controls="mobile-menu"><i class="fa-solid fa-bars"></i></button>
         </div>
 
         <div id="mobile-menu"
             class="hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-b border-white/10 flex-col py-4 px-6 gap-4 text-sm font-medium">
-            <a href="#cv" class="text-white/60 hover:text-accent">CV</a>
+            <a href="#about" class="text-white/60 hover:text-accent">About</a>
+            <a href="#case-study" class="text-white/60 hover:text-accent">Case study</a>
             <a href="#projects" class="text-white/60 hover:text-accent">Projects</a>
             <a href="#hackathons" class="text-white/60 hover:text-accent">Hackathons</a>
-            <a href="#certifications" class="text-white/60 hover:text-accent">Certifications</a>
             <a href="#experience" class="text-white/60 hover:text-accent">Experience</a>
+            <a href="#notes" class="text-white/60 hover:text-accent">Notes</a>
+            <a href="#cv" class="text-accent font-semibold">Download CV</a>
             <a href="#contact" class="text-white/60 hover:text-accent">Contact</a>
         </div>
     </nav>
 
+    <!-- ============ HERO ============ -->
     <section id="hero"
-        class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
+        class="relative z-10 min-h-[92vh] flex flex-col items-center justify-center text-center px-6 pt-28 pb-16">
         <div
             class="glass px-4 py-2 rounded-full border-white/10 text-xs font-mono text-white/70 mb-8 flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -255,18 +124,48 @@
             Data Analyst &nbsp;|&nbsp; Fintech &amp; Risk Analytics &nbsp;|&nbsp; Applied ML
         </p>
 
-        <p class="max-w-2xl text-white/50 text-base md:text-lg leading-relaxed font-light mb-12">
+        <p class="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed font-light mb-10">
             2+ years at CSB Bank building SQL ETL pipelines, API integrations and Power BI KPI dashboards
             in a regulated banking environment. Now completing an MSc in Data Analytics for Business at
             KEDGE and applying machine learning to fraud, credit risk and customer analytics.
         </p>
 
-        <div class="flex gap-4 mb-16">
-            <a href="https://www.linkedin.com/in/vighnesh-shetty" target="_blank"
+        <!-- Proof strip: the three things a recruiter should see first -->
+        <ul class="flex flex-wrap justify-center gap-3 mb-10 text-xs md:text-sm">
+            <li>
+                <a href="#hackathons"
+                    class="glass flex items-center gap-2 px-4 py-2 rounded-full border-yellow-500/40 text-yellow-200 hover:border-yellow-400 transition-colors">
+                    <i class="fa-solid fa-trophy text-yellow-400"></i> 1st place &middot; CGI &times; BNP Paribas hackathon
+                </a>
+            </li>
+            <li class="glass flex items-center gap-2 px-4 py-2 rounded-full text-white/80">
+                <i class="fa-solid fa-building-columns text-accent"></i> 2+ years in banking data &amp; integration
+            </li>
+            <li>
+                <a href="#case-study"
+                    class="glass flex items-center gap-2 px-4 py-2 rounded-full text-white/80 hover:border-accent/50 transition-colors">
+                    <i class="fa-solid fa-database text-accent"></i> 1.06M real bank transactions, 55 data tests
+                </a>
+            </li>
+        </ul>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
+            <a href="case-bank-analytics.html"
+                class="bg-accent text-black font-semibold px-6 py-3 rounded-full hover:bg-white transition-colors">
+                Read the flagship case study <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+            <a href="#cv"
+                class="glass px-6 py-3 rounded-full font-semibold text-white hover:border-accent/50 transition-colors">
+                <i class="fa-solid fa-download mr-1"></i> Get my CV
+            </a>
+        </div>
+
+        <div class="flex gap-4">
+            <a href="https://www.linkedin.com/in/vighnesh-shetty" target="_blank" rel="noopener" aria-label="LinkedIn"
                 class="w-12 h-12 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent hover:border-accent/50 transition-all">
                 <i class="fa-brands fa-linkedin-in"></i>
             </a>
-            <a href="https://github.com/vighnesh-shetty-vs" target="_blank"
+            <a href="https://github.com/vighnesh-shetty-vs" target="_blank" rel="noopener" aria-label="GitHub"
                 class="w-12 h-12 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent hover:border-accent/50 transition-all">
                 <i class="fa-brands fa-github"></i>
             </a>
@@ -281,151 +180,226 @@
         </div>
     </section>
 
-    <section id="cv" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Role-Based CVs</h2>
-                <p class="text-white/40">Download the résumé that best fits your opening.</p>
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-start">
+            <div class="lg:col-span-2 fade-up">
+                <figure class="glass rounded-3xl overflow-hidden">
+                    <img src="./assets/Hackathon/BNP/BNP.jpg" alt="Vighnesh's team after winning the CGI × BNP Paribas × KEDGE hackathon"
+                        loading="lazy" class="w-full aspect-[4/3] object-cover" />
+                    <figcaption class="px-5 py-3 text-xs font-mono text-white/50">
+                        <i class="fa-solid fa-trophy text-yellow-400 mr-1"></i> CGI &times; BNP Paribas &times; KEDGE &middot; 1st place &middot; Mar 2026
+                    </figcaption>
+                </figure>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 fade-up">
-                <a href="CV_Data_Analyst_Internship_2026.pdf" download
-                    class="premium-card glass rounded-3xl p-8 block group">
-                    <i class="fa-solid fa-chart-pie text-2xl text-accent mb-6 bg-accent/10 p-4 rounded-2xl"></i>
-                    <h3 class="text-2xl font-bold mb-3">Data Analyst CV</h3>
-                    <p class="text-white/50 text-sm mb-8 leading-relaxed">
-                        SQL, Python and Power BI: ETL pipelines, KPI dashboards, EDA, customer segmentation and
-                        predictive models.
+            <div class="lg:col-span-3 fade-up">
+                <p class="font-mono text-sm text-accent mb-3 uppercase tracking-widest">How I got here</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">From bank plumbing to bank analytics.</h2>
+                <div class="space-y-4 text-white/65 leading-relaxed">
+                    <p>
+                        I started on the engineering side of a bank. At CSB Bank I migrated and audited 300+ APIs
+                        for RBI compliance, and built the SQL pipelines and Power BI dashboards that reported on them.
                     </p>
-                    <div
-                        class="flex items-center gap-2 text-sm font-semibold text-accent group-hover:translate-x-2 transition-transform">
-                        Download PDF <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </a>
+                    <p>
+                        The part I enjoyed most was the question underneath: can we trust this number, and what is it
+                        actually telling us? So I moved to France for an MSc in Data Analytics at KEDGE. My projects now
+                        start from a banking or risk question and end with a decision someone could act on.
+                    </p>
+                </div>
 
-                <a href="CV_Fintech_Internship_2026.pdf" download
-                    class="premium-card glass rounded-3xl p-8 block group">
-                    <i class="fa-solid fa-shield-halved text-2xl text-accent mb-6 bg-accent/10 p-4 rounded-2xl"></i>
-                    <h3 class="text-2xl font-bold mb-3">Payments & Risk CV</h3>
-                    <p class="text-white/50 text-sm mb-8 leading-relaxed">
-                        For banking, fintech and risk roles: RBI regulatory compliance audits, fraud and credit-risk
-                        models (XGBoost, SHAP) and Basel III stress testing.
-                    </p>
-                    <div
-                        class="flex items-center gap-2 text-sm font-semibold text-accent group-hover:translate-x-2 transition-transform">
-                        Download PDF <i class="fa-solid fa-arrow-right"></i>
+                <dl class="grid sm:grid-cols-2 gap-4 mt-8 text-sm">
+                    <div class="glass rounded-2xl p-4">
+                        <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Studying</dt>
+                        <dd class="text-white/85">MSc Data Analytics for Business, KEDGE (until Apr 2027)</dd>
                     </div>
-                </a>
+                    <div class="glass rounded-2xl p-4">
+                        <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Latest shipped</dt>
+                        <dd class="text-white/85"><a href="case-bank-analytics.html" class="hover:text-accent underline decoration-white/20 underline-offset-4">Retail bank warehouse: dbt + Power BI</a> (Oct 2026)</dd>
+                    </div>
+                    <div class="glass rounded-2xl p-4">
+                        <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Looking for</dt>
+                        <dd class="text-white/85">6-month internship in data, risk or BI. Paris, available now. Authorised to work in France.</dd>
+                    </div>
+                    <div class="glass rounded-2xl p-4">
+                        <dt class="text-white/40 text-xs font-mono uppercase tracking-wider mb-1">Off the clock</dt>
+                        <dd class="text-white/85">Cycling &middot; Reading &middot; Travelling &middot; Basketball &middot; Football</dd>
+                    </div>
+                </dl>
+
+                <div class="mt-8">
+                    <p class="text-white/40 text-xs font-mono uppercase tracking-wider mb-3">Toolkit (all used in the projects below)</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">SQL</span><span class="tech-tag">Python</span><span class="tech-tag">dbt</span><span class="tech-tag">DuckDB</span><span class="tech-tag">Power BI / DAX</span><span class="tech-tag">Tableau</span><span class="tech-tag">Excel</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span class="tech-tag">Statistics / A/B testing</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Azure OpenAI</span><span class="tech-tag">Gemini API</span><span class="tech-tag">Git + CI</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="relative z-10 py-24 px-6">
+    <!-- ============ FLAGSHIP CASE STUDY ============ -->
+    <section id="case-study" class="relative z-10 py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12 fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Selected Projects</h2>
-
-                <div class="flex flex-wrap justify-center gap-2">
-                    <button
-                        class="filter-btn active px-5 py-2 rounded-full text-sm font-medium glass text-white hover:border-accent/50"
-                        data-filter="all">All</button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
-                        data-filter="fintech">FinTech & Risk</button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
-                        data-filter="ai">GenAI &amp; NLP</button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
-                        data-filter="ml">Machine Learning</button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium glass text-white/60 hover:text-white"
-                        data-filter="bi">Business Intelligence</button>
-                </div>
+                <p class="font-mono text-sm text-accent mb-3 uppercase tracking-widest">Flagship case study</p>
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">The bank could have seen the defaults coming.</h2>
+                <p class="text-white/50 max-w-2xl mx-auto">
+                    Real data from a Czech retail bank: 4,500 accounts, 1.06M transactions and 682 loans (1993&ndash;1998).
+                    I built a tested warehouse in dbt, asked 10 business questions in SQL and reported them in Power BI,
+                    using only what the bank knew <em>before</em> each loan was granted.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8" id="project-grid">
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="bi fintech">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/BankAnalytics/dbt_lineage.png" alt="Retail Bank Analytics: dbt Warehouse + Power BI" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Retail Bank Analytics: dbt Warehouse + Power BI</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Real data from a Czech bank (1.06M transactions, 682 loans) modelled in dbt on DuckDB: 17 models, 55 tests including daily balance reconciliation and a no-leakage check, 10 SQL business questions, and a 3-page Power BI report (21 DAX measures, row-level security).
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Finding:</strong> all 27 loans granted to clients who had already been overdrawn defaulted, vs 7.5% for everyone else. The bank had that information before lending.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">SQL</span><span class="tech-tag">dbt</span><span class="tech-tag">DuckDB</span><span class="tech-tag">Power BI / DAX</span><span class="tech-tag">CI</span>
+            <div class="glass rounded-3xl p-6 md:p-10 fade-up" data-explorer>
+                <div class="grid lg:grid-cols-5 gap-10">
+                    <div class="lg:col-span-3">
+                        <p class="text-white/40 text-xs font-mono uppercase tracking-wider mb-4">Default rate by warning sign &middot; pick one</p>
+                        <div class="flex flex-wrap gap-2 mb-8" role="tablist">
+                            <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="true" data-tab="overdrawn">Overdrawn before the loan</button>
+                            <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="false" data-tab="lowbal">Balance &lt; 5k CZK</button>
+                            <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="false" data-tab="afford">Affordability</button>
+                            <button class="finding-tab glass px-4 py-2 rounded-full text-sm" role="tab" aria-selected="false" data-tab="unemp">Local unemployment</button>
                         </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
+
+                        <div data-panel="overdrawn" class="space-y-5">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Clients already overdrawn (27 loans)</span><span class="font-mono text-red-400 font-bold">100%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-red-500" data-w="100"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Everyone else</span><span class="font-mono text-accent font-bold">7.5%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-accent" data-w="7.5"></div></div>
+                            </div>
+                            <p class="text-sm text-white/60 border-l-2 border-accent pl-3">Every single loan to a client who had already gone overdrawn defaulted. The bank had that information on the day it said yes.</p>
+                        </div>
+
+                        <div data-panel="lowbal" class="space-y-5" hidden>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Balance dipped below 5,000 CZK in the 90 days before</span><span class="font-mono text-red-400 font-bold">59%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-red-500" data-w="59"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Everyone else</span><span class="font-mono text-accent font-bold">7.8%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-accent" data-w="7.8"></div></div>
+                            </div>
+                            <p class="text-sm text-white/60 border-l-2 border-accent pl-3">A simple 90-day low-balance flag: borrowers who tripped it defaulted about 7.6&times; as often as the rest.</p>
+                        </div>
+
+                        <div data-panel="afford" class="space-y-5" hidden>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Least affordable quartile (payment / monthly income)</span><span class="font-mono text-red-400 font-bold">23.5%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-red-500" data-w="23.5"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Other three quartiles</span><span class="font-mono text-accent font-bold">6&ndash;9%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-accent" data-w="9"></div></div>
+                            </div>
+                            <p class="text-sm text-white/60 border-l-2 border-accent pl-3">Affordability matters, but only at the extreme: the top three quartiles look alike.</p>
+                        </div>
+
+                        <div data-panel="unemp" class="space-y-5" hidden>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Low-unemployment districts</span><span class="font-mono text-white/80 font-bold">10.1%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-white/40" data-w="10.1"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>Medium</span><span class="font-mono text-white/80 font-bold">12.8%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-white/40" data-w="12.8"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span>High</span><span class="font-mono text-white/80 font-bold">10.6%</span></div>
+                                <div class="bar-track"><div class="bar-fill bg-white/40" data-w="10.6"></div></div>
+                            </div>
+                            <p class="text-sm text-white/60 border-l-2 border-accent pl-3">The obvious suspect isn't the signal. The local economy barely moves default rates; account behaviour does.</p>
+                        </div>
+                        <p class="text-xs text-white/35 font-mono mt-6">Portfolio baseline: 11.1% of loans default, holding 15.1% of exposure.</p>
+                    </div>
+
+                    <div class="lg:col-span-2 flex flex-col">
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="glass rounded-2xl p-4"><p class="text-2xl font-bold text-accent">55</p><p class="text-xs text-white/50">dbt tests in CI, incl. daily balance reconciliation</p></div>
+                            <div class="glass rounded-2xl p-4"><p class="text-2xl font-bold text-accent">0</p><p class="text-xs text-white/50">features built from data after the grant date (tested)</p></div>
+                            <div class="glass rounded-2xl p-4"><p class="text-2xl font-bold text-accent">17</p><p class="text-xs text-white/50">dbt models, staging &rarr; marts star schema</p></div>
+                            <div class="glass rounded-2xl p-4"><p class="text-2xl font-bold text-accent">21</p><p class="text-xs text-white/50">DAX measures, checked against SQL; row-level security</p></div>
+                        </div>
+                        <p class="text-sm text-white/60 border-l-2 border-yellow-500/60 pl-3 mb-6">
+                            <strong class="text-white">Why the &ldquo;before&rdquo; matters:</strong> the dataset's own guide warns that
+                            &ldquo;balance ever negative&rdquo; separates good and bad loans perfectly if you ignore time. A test fails the build if
+                            any loan feature uses a transaction on or after the grant date.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag">SQL</span><span class="tech-tag">dbt</span><span class="tech-tag">DuckDB</span><span class="tech-tag">Power BI / DAX</span><span class="tech-tag">GitHub Actions</span>
+                        </div>
+                        <div class="flex flex-wrap gap-3 mt-auto">
+                            <a href="case-bank-analytics.html"
+                                class="bg-accent text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-white transition-colors">
+                                Open the full case file <i class="fa-solid fa-arrow-right ml-1"></i></a>
                             <a href="https://github.com/vighnesh-shetty-vs/bank-analytics-dbt-powerbi" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
+                                class="glass text-sm px-5 py-2.5 rounded-full hover:border-accent/50"><i class="fa-brands fa-github mr-1"></i> Repo</a>
                             <a href="https://vighnesh-shetty-vs.github.io/bank-analytics-dbt-powerbi/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-sitemap"></i> dbt docs</a>
-                            <button onclick="openGallery(['./assets/BankAnalytics/dbt_lineage.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
+                                class="glass text-sm px-5 py-2.5 rounded-full hover:border-accent/50"><i class="fa-solid fa-sitemap mr-1"></i> dbt docs</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="fintech ml">
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Selected Projects</h2>
+                <p class="text-white/40">Each one ends in a number or a decision, not just a model.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/CreditScorecard/model_charts.png" alt="Credit Card Default Scorecard" loading="lazy"
+                        <img src="./assets/CreditScorecard/model_charts.png" alt="Credit scorecard validation charts" loading="lazy"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">Credit risk</span>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Credit Card Default Scorecard</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
                             Bank-style points scorecard on 30,000 real card customers: monotonic WoE binning, IV selection, logistic regression scaled to points (PDO 20), validated with Gini, KS, calibration and PSI, plus a fairness check. 7 unit tests and CI.
                         </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                        <p class="text-white/75 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Result:</strong> test Gini 0.51, KS 0.40. The cost-based cut-off approves 54% of customers at an 11% default rate vs 22% overall.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Credit risk</span><span class="tech-tag">WoE / IV</span><span class="tech-tag">Logistic regression</span><span class="tech-tag">Model validation</span>
+                            <span class="tech-tag">WoE / IV</span><span class="tech-tag">Logistic regression</span><span class="tech-tag">Model validation</span>
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
                             <a href="https://github.com/vighnesh-shetty-vs/credit-risk-scorecard" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
                             <button onclick="openGallery(['./assets/CreditScorecard/model_charts.png'])"
                                 class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
+                                <i class="fa-regular fa-images"></i> View Gallery</button>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="fintech ml">
+                <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/Real_Time_Financial_Fraud_Detection_Engine/poster.png" alt="" loading="lazy"
+                        <img src="./assets/Real_Time_Financial_Fraud_Detection_Engine/poster.png" alt="Fraud detection dashboard" loading="lazy"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <button onclick="openGallery(['./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])" aria-label="Play demo video"
+                        <button onclick="openGallery(['./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])" aria-label="Play fraud detection demo video"
                             class="absolute inset-0 z-10 flex items-center justify-center">
                             <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
                         </button>
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-4 left-4 z-20 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">Fraud &middot; ML</span>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Card Fraud Detection Engine</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
                             XGBoost classifier on 284,807 European card transactions (0.17% fraud) with class weighting. Each blocked transaction is explained by its top SHAP feature, and a Streamlit dashboard replays held-out transactions next to their true labels.
                         </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                        <p class="text-white/75 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Result:</strong> PR-AUC 0.86 on the full test set; at a 0.9 threshold it catches 82% of frauds with 90% precision.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
@@ -433,29 +407,27 @@
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
                             <a href="https://github.com/vighnesh-shetty-vs/card-fraud-detection-xgboost-shap" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
                             <button onclick="openGallery(['./assets/Fraud/image_1.png', './assets/Fraud/image_3.png', './assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])"
                                 class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
+                                <i class="fa-regular fa-images"></i> View Gallery</button>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="bi">
+                <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/ABTest/experiment_charts.png" alt="Neobank Onboarding A/B Test" loading="lazy"
+                        <img src="./assets/ABTest/experiment_charts.png" alt="A/B test result charts" loading="lazy"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">Experimentation</span>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Neobank Onboarding A/B Test</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
                             End-to-end experiment: SQL cleaning of messy event data (duplicates, double exposure, bots), pre-registered power analysis, sample-ratio check, guardrail metrics and Bonferroni-corrected segments. Synthetic data with a known true effect, so the method is checked in CI.
                         </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                        <p class="text-white/75 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Decision:</strong> KYC completion +3.1 pp, but the fraud guardrail rose significantly, so the memo recommends an Android-only rollout with an extra fraud check.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
@@ -463,62 +435,27 @@
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
                             <a href="https://github.com/vighnesh-shetty-vs/fintech-onboarding-ab-test" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
                             <button onclick="openGallery(['./assets/ABTest/experiment_charts.png'])"
                                 class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
+                                <i class="fa-regular fa-images"></i> View Gallery</button>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="bi fintech">
+                <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
                     <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/AeroCarbon/dashboard.png" alt="AeroCarbon Exchange: Aviation Carbon Credits" loading="lazy"
+                        <img src="./assets/DocuMind/risk_audit_1.png" alt="DocuMind contract risk audit screen" loading="lazy"
                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">GenAI</span>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">AeroCarbon Exchange: Aviation Carbon Credits</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Group startup pitch with a Streamlit MVP I built. It models an airline's baseline vs actual CO&#8322; from fleet, route and SAF levers, turns avoided tonnes into credits and revenue, and shows attribution by lever and a per-flight audit ledger.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Business model:</strong> SaaS licence per airline plus a 2&ndash;5% fee on every credit sold, aimed at CORSIA and EU ETS compliance. The MVP runs on simulated data.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Streamlit</span><span class="tech-tag">Plotly</span><span class="tech-tag">Pandas</span><span class="tech-tag">Climate tech</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Aerocarbon" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-aerocarbon-app-f38jgj.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/AeroCarbon/dashboard.png', './assets/AeroCarbon/emissions_breakdown.png', './assets/AeroCarbon/audit_ledger.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="ai">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/DocuMind/risk_audit_1.png" alt="DocuMind: Contract Risk &amp; Document QA" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">DocuMind: Contract Risk & Document Q&amp;A</h3>
+                        <h3 class="text-xl font-bold mb-3">DocuMind: Contract Risk &amp; Document Q&amp;A</h3>
                         <p class="text-white/50 text-sm mb-4 leading-relaxed">
                             Upload contracts and memos as PDFs. Google Gemini flags risky clauses, cross-references facts across documents and writes an executive brief. PyPDF2 for parsing, Streamlit UI.
                         </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
+                        <p class="text-white/75 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
                             <strong>Use:</strong> a first-pass compliance review that points a reviewer to the clauses that need a human.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-8 mt-auto">
@@ -526,271 +463,137 @@
                         </div>
                         <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
                             <a href="https://github.com/vighnesh-shetty-vs/documind_bi_engine" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
                             <a href="https://vighnesh-shetty-vs-documind-bi-engine-app-e02umc.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
+                                class="text-xs font-semibold text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Live Demo</a>
                             <button onclick="openGallery(['./assets/DocuMind/risk_audit_1.png', './assets/DocuMind/cross_reference_1.png', './assets/DocuMind/executive_brief_1.png'])"
                                 class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
+                                <i class="fa-regular fa-images"></i> View Gallery</button>
                         </div>
                     </div>
-                </div>
-
+                </article>
             </div>
 
-            <h3 class="text-2xl font-bold tracking-tight mt-20 mb-8 text-center fade-up">More projects</h3>
-            <div class="grid md:grid-cols-2 gap-8" id="more-grid">
+            <!-- More projects: compact list, so the four above stay the focus -->
+            <details class="glass rounded-3xl mt-10 fade-up group">
+                <summary class="flex items-center justify-between px-6 md:px-8 py-5">
+                    <span>
+                        <span class="font-bold text-lg">More projects</span>
+                        <span class="text-white/40 text-sm ml-2">8 more: ML, NLP, BI and a startup MVP</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-down chev text-white/50"></i>
+                </summary>
+                <ul class="divide-y divide-white/5 border-t border-white/10">
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">AeroCarbon Exchange: Aviation Carbon Credits</p>
+                            <p class="text-sm text-white/50">Group startup pitch; I built the Streamlit MVP that turns fleet, route and SAF levers into avoided CO&#8322;, credits and revenue (simulated data).</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/Aerocarbon" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-aerocarbon-app-f38jgj.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/AeroCarbon/dashboard.png', './assets/AeroCarbon/emissions_breakdown.png', './assets/AeroCarbon/audit_ledger.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">Telco Customer Churn Predictor</p>
+                            <p class="text-sm text-white/50">Logistic regression on 7,043 customers; the riskiest 30% hold 65% of churners. SMOTE didn't beat class weighting (AUC 0.83 either way).</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/Telco/Sample_High_Risk_customer_1.png', './assets/Telco/Sample_Low_Risk_customer_1.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">Market Basket Analysis: Retail Bundles</p>
+                            <p class="text-sm text-white/50">FP-Growth rules on 541,909 invoice lines by country; in France matching sets show 13.9&times; lift. Bundle candidates to A/B test.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/Market-Basket-Analysis" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-market-basket-analy-market-basket-app-iv8ny8.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/MarketBasket/main.png', './assets/MarketBasket/matrix.png', './assets/MarketBasket/recommender.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">AlphaWiz: Banking Risk &amp; Retention Platform</p>
+                            <p class="text-sm text-white/50">XGBoost PD scoring with SHAP, a Basel III capital stress test and a churn-based retention manager, on 100k synthetic customers (figures illustrative).</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/AlphaWiz/executive_overview.png', './assets/AlphaWiz/loan_origination_1.png', './assets/AlphaWiz/stress_testing_1.png', './assets/AlphaWiz/retenstion_campaign_manager.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">AlphaSense: News Sentiment Trading Terminal</p>
+                            <p class="text-sm text-white/50">VADER sentiment on financial headlines plus 1-minute prices, RSI, SMA and volatility, into a buy/hold/sell signal across CAC 40, DAX, FX and crypto.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-alphasense-nlp-trading-signal-eng-app-hrpqrm.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/AlphaSense/image_1.png', './assets/AlphaSense/image_2.png', './assets/AlphaSense/image_3.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">Voice of Customer Intelligence</p>
+                            <p class="text-sm text-white/50">Gemini tags each review with sentiment and topic; Plotly dashboards rank the recurring problems to fix.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/Voice_of_Customer_Intelligence" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-voice-of-customer-intelligence-app-xwbdy9.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/VoC/dashboard_1.png', './assets/VoC/dashboard_2.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">Customer Segmentation Dashboard</p>
+                            <p class="text-sm text-white/50">K-Means on age, income and spending score, cluster count checked by silhouette; each segment gets a name and a suggested action.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <a href="https://github.com/vighnesh-shetty-vs/Customer_Segmentation_Dashboard" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="https://vighnesh-shetty-vs-customer-segmentatio-segmentation-app-qfaqrp.streamlit.app/" target="_blank" rel="noopener" class="text-white/70 hover:text-accent"><i class="fa-solid fa-link"></i> Demo</a>
+                            <button onclick="openGallery(['./assets/Segmentation/Image_1.png', './assets/Segmentation/Image_2.png', './assets/Segmentation/Image_3.png'])" class="text-accent hover:text-white"><i class="fa-regular fa-images"></i> Gallery</button>
+                        </div>
+                    </li>
+                    <li class="px-6 md:px-8 py-5 flex flex-col md:flex-row md:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="font-semibold">U.S. Trade Dependency &amp; Risk Analytics</p>
+                            <p class="text-sm text-white/50">Tableau story over 2M+ rows of U.S. trade (2016&ndash;2021) showing where imports depend on few partners or transport modes.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-semibold shrink-0">
+                            <button onclick="openGallery(['./assets/Tableau/Project_Demo.mp4'])" class="text-accent hover:text-white"><i class="fa-solid fa-play"></i> Demo video</button>
+                        </div>
+                    </li>
+                </ul>
+            </details>
 
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="fintech ml">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/AlphaWiz/executive_overview.png" alt="AlphaWiz: Banking Risk &amp; Retention Platform" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">AlphaWiz: Banking Risk & Retention Platform</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Three modules on 100k synthetic customer records: XGBoost probability-of-default scoring with SHAP explanations, a Basel III capital stress test, and a churn-based retention manager.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Note:</strong> built on generated data, so the business figures are illustrative.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span class="tech-tag">Basel III</span><span class="tech-tag">SQLAlchemy</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/AlphaWiz" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-alphawiz-app-lxsuvq.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/AlphaWiz/executive_overview.png', './assets/AlphaWiz/loan_origination_1.png', './assets/AlphaWiz/stress_testing_1.png', './assets/AlphaWiz/retenstion_campaign_manager.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="fintech ai">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/AlphaSense/image_1.png" alt="AlphaSense: News Sentiment Trading Terminal" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">AlphaSense: News Sentiment Trading Terminal</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            VADER sentiment on financial news headlines combined with 1-minute yfinance prices and RSI, SMA and volatility signals across equities (CAC 40, DAX), FX and crypto.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Pipeline:</strong> headlines &rarr; sentiment &rarr; technical indicators &rarr; buy/hold/sell signal.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">NLP (VADER)</span><span class="tech-tag">yfinance</span><span class="tech-tag">Plotly</span><span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/AlphaSense-NLP-Trading-Signal-Engine-New" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-alphasense-nlp-trading-signal-eng-app-hrpqrm.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/AlphaSense/image_1.png', './assets/AlphaSense/image_2.png', './assets/AlphaSense/image_3.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="ml">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/Telco/Sample_High_Risk_customer_1.png" alt="Telco Customer Churn Predictor" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Telco Customer Churn Predictor</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Logistic regression on 7,043 telecom customers, compared against a contract-type rule and two rebalancing methods. The riskiest 30% of customers contain 65% of churners.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Finding:</strong> SMOTE did not improve ranking (AUC 0.83 either way); class weighting gives the same result more simply.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Logistic Regression</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Telco-Churn-Prediction" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-telco-churn-prediction-app-x2xli5.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/Telco/Sample_High_Risk_customer_1.png', './assets/Telco/Sample_Low_Risk_customer_1.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="ai bi">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/VoC/dashboard_1.png" alt="Voice of Customer Intelligence" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Voice of Customer Intelligence</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Customer reviews in, Gemini tags each with sentiment and topic, and Plotly dashboards track trends and recurring issues.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> turns thousands of free-text reviews into a ranked list of problems to fix.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Gemini API</span><span class="tech-tag">Sentiment analysis</span><span class="tech-tag">Plotly</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Voice_of_Customer_Intelligence" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-voice-of-customer-intelligence-app-xwbdy9.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/VoC/dashboard_1.png', './assets/VoC/dashboard_2.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="bi ml">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/MarketBasket/main.png" alt="Market Basket Analysis: Retail Bundles" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Market Basket Analysis: Retail Bundles</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            FP-Growth association rules on the UCI Online Retail dataset (541,909 invoice lines) by country. In France, customers buy matching sets: skull cups and plates show 13.9x lift.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> bundle and checkout-upsell candidates, to be validated with an A/B test.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">FP-Growth</span><span class="tech-tag">mlxtend</span><span class="tech-tag">Pandas</span><span class="tech-tag">Plotly</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Market-Basket-Analysis" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-market-basket-analy-market-basket-app-iv8ny8.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/MarketBasket/main.png', './assets/MarketBasket/matrix.png', './assets/MarketBasket/recommender.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="bi ml">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/Segmentation/Image_1.png" alt="Customer Segmentation Dashboard" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">Customer Segmentation Dashboard</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            K-Means clustering of customers on age, income and spending score, cluster count checked by silhouette score, with each segment profiled in an interactive dashboard.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> gives marketing a named segment and a suggested action for each group.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">K-Means</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Plotly</span><span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <a href="https://github.com/vighnesh-shetty-vs/Customer_Segmentation_Dashboard" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-brands fa-github"></i> Source</a>
-                            <a href="https://vighnesh-shetty-vs-customer-segmentatio-segmentation-app-qfaqrp.streamlit.app/" target="_blank" rel="noopener"
-                                class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                    class="fa-solid fa-link"></i> Live Demo</a>
-                            <button onclick="openGallery(['./assets/Segmentation/Image_1.png', './assets/Segmentation/Image_2.png', './assets/Segmentation/Image_3.png'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card glass rounded-3xl overflow-hidden project-card fade-up flex flex-col"
-                    data-category="bi">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/Tableau/poster.png" alt="" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <button onclick="openGallery(['./assets/Tableau/Project_Demo.mp4'])" aria-label="Play demo video"
-                            class="absolute inset-0 z-10 flex items-center justify-center">
-                            <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
-                        </button>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-3">U.S. Trade Dependency &amp; Risk Analytics</h3>
-                        <p class="text-white/50 text-sm mb-4 leading-relaxed">
-                            Tableau story over a 2M+ row U.S. trade dataset (2016&ndash;2021) showing where imports depend on few partners or transport modes.
-                        </p>
-                        <p class="text-white/70 text-sm mb-6 leading-relaxed border-l-2 border-accent pl-3">
-                            <strong>Use:</strong> a supply-chain risk view for spotting concentration before it becomes a disruption.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                            <span class="tech-tag">Tableau</span><span class="tech-tag">Excel</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 items-center border-t border-white/10 pt-4">
-                            <button onclick="openGallery(['./assets/Tableau/Project_Demo.mp4'])"
-                                class="text-xs font-semibold text-accent hover:text-white bg-accent/10 px-3 py-1.5 rounded-lg transition-colors ml-auto">
-                                <i class="fa-regular fa-images"></i> View Gallery
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <p class="text-center mt-8 text-sm fade-up">
+                <a href="https://github.com/vighnesh-shetty-vs?tab=repositories" target="_blank" rel="noopener" class="text-white/50 hover:text-accent">
+                    Everything else lives on GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
+            </p>
         </div>
     </section>
 
-    <section id="hackathons" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+    <!-- ============ HACKATHONS ============ -->
+    <section id="hackathons" class="relative z-10 py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Hackathons & Competitions</h2>
-                <p class="text-white/40">Solving real-world business problems under pressure.</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Hackathons &amp; Competitions</h2>
+                <p class="text-white/40">Real business problems, real deadlines.</p>
             </div>
             <div class="grid lg:grid-cols-3 gap-8">
 
                 <div id="confetti-target"
                     class="premium-card glass rounded-3xl overflow-hidden fade-up relative border-2 border-yellow-500/40 shadow-[0_0_30px_rgba(234,179,8,0.15)]">
                     <div class="h-48 bg-black/50 relative group">
-                        <img src="./assets/Hackathon/BNP/BNP.jpg" alt="BNP Paribas Hackathon"
+                        <img src="./assets/Hackathon/BNP/BNP.jpg" alt="Winning team at the CGI × BNP Paribas × KEDGE hackathon" loading="lazy"
                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
-
                         <div
                             class="absolute -top-1 right-6 bg-red-600 text-white px-4 py-2 rounded-b-xl font-black text-sm shadow-[0_10px_20px_rgba(220,38,38,0.6)] flex flex-col items-center gap-1 z-10 animate-badge-pulse border-x-2 border-b-2 border-red-400">
                             <i class="fa-solid fa-trophy text-yellow-300 text-xl"></i>
@@ -806,17 +609,16 @@
                             one test run takes 15 seconds and costs under &euro;1.</p>
                         <button onclick="openGallery(['./assets/Hackathon/BNP/BNP.jpg'])"
                             class="text-xs font-semibold text-white/70 hover:text-accent"><i
-                                class="fa-regular fa-images"></i> View Photos/Video</button>
+                                class="fa-regular fa-images"></i> View Photos</button>
                     </div>
                 </div>
 
                 <div class="premium-card glass rounded-3xl overflow-hidden fade-up">
                     <div class="h-48 bg-black/50 relative group">
-                        <img src="./assets/Hackathon/Loreal/Loreal.jpg" alt="L'Oreal Hackathon"
+                        <img src="./assets/Hackathon/Loreal/Loreal.jpg" alt="L'Oréal Sustainable AI hackathon" loading="lazy"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
-                        <div
-                            class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-yellow-500 border-yellow-500/30">
-                            <i class="fa-solid fa-trophy"></i> Participant
+                        <div class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-yellow-500 border-yellow-500/30">
+                            <i class="fa-solid fa-leaf"></i> Participant
                         </div>
                     </div>
                     <div class="p-6">
@@ -840,12 +642,11 @@
                     <div class="h-48 bg-black/50 relative group">
                         <img src="./assets/Hackathon/Betclic/poster.png" alt="Betclic hackathon recommender demo" loading="lazy"
                             class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" />
-                        <button onclick="openGallery(['./assets/Hackathon/Betclic/App_Recommender_Demo.mp4'])" aria-label="Play demo video"
+                        <button onclick="openGallery(['./assets/Hackathon/Betclic/App_Recommender_Demo.mp4'])" aria-label="Play recommender demo video"
                             class="absolute inset-0 z-10 flex items-center justify-center">
                             <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
                         </button>
-                        <div
-                            class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold text-green-400 border-green-400/30">
+                        <div class="absolute top-4 left-4 z-20 glass px-3 py-1 rounded-full text-xs font-bold text-green-400 border-green-400/30">
                             <i class="fa-solid fa-code"></i> Participant
                         </div>
                     </div>
@@ -869,56 +670,12 @@
         </div>
     </section>
 
-    <section id="certifications" class="relative z-10 py-24 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Certifications</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="https://www.linkedin.com/in/vighnesh-shetty/details/certifications/" target="_blank"
-                    class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card hover:bg-white/5 transition-colors cursor-pointer">
-                    <i class="fa-brands fa-microsoft text-3xl text-blue-400 mb-4"></i>
-                    <h4 class="font-bold text-sm mb-1">Azure AI Fundamentals (AI-900)</h4>
-                    <p class="text-xs text-white/50 mb-3">Microsoft &middot; Mar 2026</p>
-                    <span
-                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">View on
-                        LinkedIn</span>
-                </a>
-                <a href="https://www.linkedin.com/in/vighnesh-shetty/details/certifications/" target="_blank"
-                    class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card hover:bg-white/5 transition-colors cursor-pointer">
-                    <i class="fa-brands fa-google text-3xl text-green-500 mb-4"></i>
-                    <h4 class="font-bold text-sm mb-1">Cloud Computing Foundations</h4>
-                    <p class="text-xs text-white/50 mb-3">Google &middot; Feb 2026</p>
-                    <span
-                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">View on
-                        LinkedIn</span>
-                </a>
-                <a href="https://www.linkedin.com/in/vighnesh-shetty/details/certifications/" target="_blank"
-                    class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card hover:bg-white/5 transition-colors cursor-pointer">
-                    <i class="fa-solid fa-database text-3xl text-purple-400 mb-4"></i>
-                    <h4 class="font-bold text-sm mb-1">Associate Data Analyst in SQL</h4>
-                    <p class="text-xs text-white/50 mb-3">DataCamp &middot; Dec 2025</p>
-                    <span
-                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">View on
-                        LinkedIn</span>
-                </a>
-                <a href="https://www.linkedin.com/in/vighnesh-shetty/details/certifications/" target="_blank"
-                    class="glass p-5 rounded-2xl flex flex-col items-center text-center fade-up premium-card hover:bg-white/5 transition-colors cursor-pointer">
-                    <i class="fa-solid fa-people-group text-3xl text-yellow-500 mb-4"></i>
-                    <h4 class="font-bold text-sm mb-1">Professional Scrum Master I</h4>
-                    <p class="text-xs text-white/50 mb-3">Scrum.org &middot; Apr 2026</p>
-                    <span
-                        class="text-[10px] uppercase tracking-wider text-accent mt-auto border border-accent/20 px-2 py-1 rounded">View on
-                        LinkedIn</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
+    <!-- ============ EXPERIENCE & EDUCATION ============ -->
     <section id="experience" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16 fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Experience & Education</h2>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Experience &amp; Education</h2>
+                <p class="text-white/40">What I did, and what it taught me.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
@@ -942,6 +699,8 @@
                                     300+ API endpoints.</li>
                                 <li>Audited 300+ APIs for RBI CSITE compliance (AES-256, OAuth 2.0, JWT, data masking).</li>
                             </ul>
+                            <p class="text-sm text-white/80 italic mt-4 border-l-2 border-accent/60 pl-3">
+                                &ldquo;If a dashboard number can't be traced back to its source, nobody in a bank will act on it.&rdquo;</p>
                         </div>
                     </div>
 
@@ -960,6 +719,8 @@
                                 <li>Supported the Oracle FlexCube core banking migration: dry runs, full VAPT cycle and
                                     decommissioning of 50+ legacy APIs.</li>
                             </ul>
+                            <p class="text-sm text-white/80 italic mt-4 border-l-2 border-accent/60 pl-3">
+                                &ldquo;A zero-downtime migration is mostly rehearsal: the dry runs are the real project.&rdquo;</p>
                         </div>
                     </div>
 
@@ -975,6 +736,8 @@
                                 <li>Translated ERP business requirements into actionable technical workflows (SRS).</li>
                                 <li>Created interactive data dashboards and wireframes for stakeholders.</li>
                             </ul>
+                            <p class="text-sm text-white/80 italic mt-4 border-l-2 border-accent/60 pl-3">
+                                &ldquo;Requirements only become clear once someone can see the screen.&rdquo;</p>
                         </div>
                     </div>
                 </div>
@@ -992,7 +755,7 @@
                         </p>
                     </div>
 
-                    <div class="glass p-6 rounded-2xl mb-6 fade-up">
+                    <div class="glass p-6 rounded-2xl mb-10 fade-up">
                         <p class="text-xs text-white/40 font-mono mb-1">Aug 2017 – Aug 2021</p>
                         <h4 class="text-base font-bold">Bachelor of Technology, Computer Science</h4>
                         <p class="text-white/60 text-sm mb-2">SMVITM (Visvesvaraya Technological University)</p>
@@ -1001,30 +764,170 @@
                             Software Testing.
                         </p>
                     </div>
+
+                    <h3 id="certifications" class="anchor font-mono text-sm text-accent mb-6 uppercase tracking-widest">Certifications</h3>
+                    <ul class="grid sm:grid-cols-2 gap-3 fade-up">
+                        <li class="glass p-4 rounded-2xl flex items-center gap-3">
+                            <i class="fa-brands fa-microsoft text-xl text-blue-400 w-6 text-center"></i>
+                            <div><p class="font-semibold text-sm">Azure AI Fundamentals (AI-900)</p><p class="text-xs text-white/50">Microsoft &middot; Mar 2026</p></div>
+                        </li>
+                        <li class="glass p-4 rounded-2xl flex items-center gap-3">
+                            <i class="fa-solid fa-people-group text-xl text-yellow-500 w-6 text-center"></i>
+                            <div><p class="font-semibold text-sm">Professional Scrum Master I</p><p class="text-xs text-white/50">Scrum.org &middot; Apr 2026</p></div>
+                        </li>
+                        <li class="glass p-4 rounded-2xl flex items-center gap-3">
+                            <i class="fa-brands fa-google text-xl text-green-500 w-6 text-center"></i>
+                            <div><p class="font-semibold text-sm">Cloud Computing Foundations</p><p class="text-xs text-white/50">Google &middot; Feb 2026</p></div>
+                        </li>
+                        <li class="glass p-4 rounded-2xl flex items-center gap-3">
+                            <i class="fa-solid fa-database text-xl text-purple-400 w-6 text-center"></i>
+                            <div><p class="font-semibold text-sm">Associate Data Analyst in SQL</p><p class="text-xs text-white/50">DataCamp &middot; Dec 2025</p></div>
+                        </li>
+                    </ul>
+                    <a href="https://www.linkedin.com/in/vighnesh-shetty/details/certifications/" target="_blank" rel="noopener"
+                        class="inline-block mt-4 text-xs font-semibold text-white/60 hover:text-accent">Verify all on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+
+                    <h3 class="font-mono text-sm text-accent mt-10 mb-4 uppercase tracking-widest">Languages</h3>
+                    <p class="text-sm text-white/70 fade-up">English C1 &middot; French A2 (working towards B1) &middot; Hindi &amp; Tulu (native)</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ============ NOTES ============ -->
+    <section id="notes" class="relative z-10 py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Notes from the work</h2>
+                <p class="text-white/40">Short write-ups of things the projects taught me. Two minutes each.</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="glass rounded-2xl fade-up">
+                    <summary class="flex items-start justify-between gap-4 p-6">
+                        <span>
+                            <span class="text-xs font-mono text-accent uppercase tracking-wider">Data quality &middot; bank analytics</span>
+                            <span class="block font-bold text-lg mt-1">The test that found two quirks in a 25-year-old bank dataset</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down chev text-white/50 mt-2"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-white/65 leading-relaxed space-y-3">
+                        <p>I wrote a dbt test that says each day's balance must equal the previous day's balance plus that day's net flow. Simple rule, and it failed on about half the rows.</p>
+                        <p>Two reasons. First, the dataset doesn't record the order of transactions within a day, so a naive running total breaks. Second, interest postings are rounded differently from balances: 763,838 account-days reconcile exactly, and 46,430 (5.7%) are off by at most 0.20 CZK.</p>
+                        <p><strong class="text-white">What I changed:</strong> the test now accepts any intra-day order and a 0.50 CZK tolerance. It still catches real breaks. The lesson: a reconciliation test tells you how the data was produced, not only whether it is right.</p>
+                    </div>
+                </details>
+
+                <details class="glass rounded-2xl fade-up">
+                    <summary class="flex items-start justify-between gap-4 p-6">
+                        <span>
+                            <span class="text-xs font-mono text-accent uppercase tracking-wider">Credit risk &middot; leakage</span>
+                            <span class="block font-bold text-lg mt-1">&ldquo;Balance ever negative&rdquo; predicts default perfectly. That's the problem.</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down chev text-white/50 mt-2"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-white/65 leading-relaxed space-y-3">
+                        <p>The Berka dataset's own guide warns that, if you ignore time, &ldquo;balance ever negative&rdquo; separates good and bad loans perfectly. Of course it does: a client who stops paying goes negative <em>after</em> the loan.</p>
+                        <p>So every loan feature in my warehouse is built only from transactions before the grant date, and a dbt test fails the build if any feature touches a later one.</p>
+                        <p><strong class="text-white">The honest result:</strong> even with that rule, the 27 loans to already-overdrawn clients all defaulted. A real signal survives the time constraint; a leaky one doesn't.</p>
+                    </div>
+                </details>
+
+                <details class="glass rounded-2xl fade-up">
+                    <summary class="flex items-start justify-between gap-4 p-6">
+                        <span>
+                            <span class="text-xs font-mono text-accent uppercase tracking-wider">Experimentation &middot; fintech</span>
+                            <span class="block font-bold text-lg mt-1">A winning A/B test I would only partly ship</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down chev text-white/50 mt-2"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-white/65 leading-relaxed space-y-3">
+                        <p>The new neobank onboarding flow lifted KYC completion from 59.4% to 62.5% (+3.1 pp, 95% CI +1.9 to +4.4). On the primary metric alone, that's a ship.</p>
+                        <p>But I had pre-registered a fraud guardrail, and it rose from 0.45% to 0.73% of signups (p = 0.004). And the gain wasn't even: +4.9 pp on Android, +1.0 pp on iOS (not significant), where the old flow was already working better.</p>
+                        <p><strong class="text-white">The recommendation:</strong> roll out on Android only, where the benefit is real, with an extra fraud check. Guardrails and segments are what turn a test result into a decision a risk team will sign.</p>
+                    </div>
+                </details>
+
+                <details class="glass rounded-2xl fade-up">
+                    <summary class="flex items-start justify-between gap-4 p-6">
+                        <span>
+                            <span class="text-xs font-mono text-accent uppercase tracking-wider">ML &middot; imbalanced data</span>
+                            <span class="block font-bold text-lg mt-1">SMOTE didn't help my churn model, and that's normal</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-down chev text-white/50 mt-2"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-white/65 leading-relaxed space-y-3">
+                        <p>On 7,043 telecom customers I compared plain logistic regression, class weighting and SMOTE, plus a simple contract-type rule as a baseline.</p>
+                        <p>AUC was 0.83 with or without SMOTE. Oversampling changes where the threshold lands, not how well the model ranks customers.</p>
+                        <p><strong class="text-white">Takeaway:</strong> class weighting gives the same ranking with less machinery. What mattered to the business was that the riskiest 30% of customers held 65% of churners.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section id="cv" class="relative z-10 py-24 px-6 border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Role-Based CVs</h2>
+                <p class="text-white/40">Pick the one closest to your opening. One page, PDF.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 fade-up">
+                <a href="CV_Data_Analyst_Internship_2026.pdf" download
+                    class="premium-card glass rounded-3xl p-8 block group">
+                    <i class="fa-solid fa-chart-pie text-2xl text-accent mb-6 bg-accent/10 p-4 rounded-2xl"></i>
+                    <h3 class="text-2xl font-bold mb-3">Data Analyst CV</h3>
+                    <p class="text-white/50 text-sm mb-8 leading-relaxed">
+                        SQL, Python and Power BI: ETL pipelines, KPI dashboards, EDA, customer segmentation and
+                        predictive models.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-semibold text-accent group-hover:translate-x-2 transition-transform">
+                        Download PDF <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="CV_Fintech_Internship_2026.pdf" download
+                    class="premium-card glass rounded-3xl p-8 block group">
+                    <i class="fa-solid fa-shield-halved text-2xl text-accent mb-6 bg-accent/10 p-4 rounded-2xl"></i>
+                    <h3 class="text-2xl font-bold mb-3">Payments &amp; Risk CV</h3>
+                    <p class="text-white/50 text-sm mb-8 leading-relaxed">
+                        For banking, fintech and risk roles: RBI regulatory compliance audits, fraud and credit-risk
+                        models (XGBoost, SHAP) and Basel III stress testing.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-semibold text-accent group-hover:translate-x-2 transition-transform">
+                        Download PDF <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
     <section id="contact" class="relative z-10 py-24 px-6 border-t border-white/5">
         <div class="max-w-2xl mx-auto text-center fade-up">
-            <h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
-            <p class="text-white/50 mb-10">Based in Paris and available now for a 6-month internship
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Let's talk</h2>
+            <p class="text-white/60 mb-3">Based in Paris and available now for a 6-month internship
                 (convention de stage). Authorised to work in France.</p>
+            <p class="text-white/40 text-sm mb-10">Best fit: data analyst, BI, credit / fraud risk analytics and fintech teams.
+                I usually reply within a day.</p>
 
             <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col items-center gap-4">
-                <a href="mailto:vighneshshetty.2026@gmail.com"
-                    class="bg-accent/10 text-accent border border-accent/20 px-6 py-3 rounded-full font-bold text-sm hover:bg-accent hover:text-black transition-colors">
+                <a href="mailto:vighneshshetty.2026@gmail.com?subject=Internship%20opportunity"
+                    class="bg-accent text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition-colors">
                     <i class="fa-solid fa-envelope mr-2"></i>vighneshshetty.2026@gmail.com
                 </a>
-                <a href="tel:+33743646410"
-                    class="text-white hover:text-accent font-medium text-sm transition-colors">
+                <a href="tel:+33743646410" class="text-white hover:text-accent font-medium text-sm transition-colors">
                     <i class="fa-solid fa-phone mr-2"></i>+33 7 43 64 64 10
                 </a>
-                <a href="https://www.linkedin.com/in/vighnesh-shetty" target="_blank" rel="noopener"
-                    class="text-white/70 hover:text-accent font-medium text-sm transition-colors">
-                    <i class="fa-brands fa-linkedin-in mr-2"></i>linkedin.com/in/vighnesh-shetty
-                </a>
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://www.linkedin.com/in/vighnesh-shetty" target="_blank" rel="noopener"
+                        class="text-white/70 hover:text-accent font-medium transition-colors"><i class="fa-brands fa-linkedin-in mr-2"></i>LinkedIn</a>
+                    <a href="https://github.com/vighnesh-shetty-vs" target="_blank" rel="noopener"
+                        class="text-white/70 hover:text-accent font-medium transition-colors"><i class="fa-brands fa-github mr-2"></i>GitHub</a>
+                    <a href="#cv" class="text-white/70 hover:text-accent font-medium transition-colors"><i class="fa-solid fa-file-arrow-down mr-2"></i>CV</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1033,10 +936,10 @@
         <p>© 2026 Vighnesh Shetty &middot; Paris</p>
     </footer>
 
-    <div id="image-modal"
+    <div id="image-modal" role="dialog" aria-modal="true" aria-label="Project gallery"
         class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
         <div class="absolute top-6 right-6 z-[110]">
-            <button onclick="closeGallery()"
+            <button onclick="closeGallery()" aria-label="Close gallery"
                 class="text-white/50 hover:text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-all">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
@@ -1046,168 +949,7 @@
         </div>
     </div>
 
-    <script>
-        // Custom Mouse Tracking Glow
-        document.addEventListener('mousemove', (e) => {
-            const glow = document.getElementById('cursor-glow');
-            if (glow) {
-                glow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
-            }
-        });
-
-        // Navbar Scroll
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Mobile Menu
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
-        });
-
-        // Fade Up Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-        // Project Filtering Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'text-white', 'border-accent/50');
-                    b.classList.add('text-white/60');
-                });
-                btn.classList.add('active', 'text-white', 'border-accent/50');
-                btn.classList.remove('text-white/60');
-
-                const filter = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const categories = card.getAttribute('data-category').split(' ');
-
-                    if (filter === 'all' || categories.includes(filter)) {
-                        card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            if (card.style.opacity === '0') {
-                                card.style.display = 'none';
-                            }
-                        }, 400);
-                    }
-                });
-            });
-        });
-
-        // Modal Gallery Logic
-        function openGallery(mediaUrls) {
-            const modal = document.getElementById('image-modal');
-            const galleryContainer = document.getElementById('modal-gallery');
-            galleryContainer.innerHTML = '';
-            mediaUrls.forEach(url => {
-                const isVideo = url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
-                if (isVideo) {
-                    const video = document.createElement('video');
-                    video.src = url;
-                    video.className = "w-full rounded-2xl border border-white/10 shadow-2xl";
-                    video.controls = true;
-                    video.autoplay = true;
-                    video.loop = true;
-                    video.muted = true;
-                    galleryContainer.appendChild(video);
-                } else {
-                    const img = document.createElement('img');
-                    img.src = url;
-                    img.className = "w-full rounded-2xl border border-white/10 shadow-2xl";
-                    img.loading = "lazy";
-                    galleryContainer.appendChild(img);
-                }
-            });
-
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.classList.add('opacity-100');
-                document.body.style.overflow = 'hidden';
-            }, 10);
-        }
-
-        function closeGallery() {
-            const modal = document.getElementById('image-modal');
-            const galleryContainer = document.getElementById('modal-gallery');
-            modal.classList.remove('opacity-100');
-            modal.classList.add('opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-                galleryContainer.innerHTML = '';
-            }, 300);
-        }
-
-        document.getElementById('image-modal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('image-modal')) closeGallery();
-        });
-
-        // ==========================================
-        // Scroll-Triggered Confetti Animation Logic
-        // ==========================================
-        const targetCard = document.getElementById('confetti-target');
-        let confettiFired = false;
-
-        const confettiObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // When the card is at least 50% visible and confetti hasn't fired yet
-                if (entry.isIntersecting && !confettiFired) {
-                    confettiFired = true;
-
-                    const duration = 2500;
-                    const animationEnd = Date.now() + duration;
-                    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
-
-                    function randomInRange(min, max) {
-                        return Math.random() * (max - min) + min;
-                    }
-
-                    const interval = setInterval(function () {
-                        const timeLeft = animationEnd - Date.now();
-
-                        if (timeLeft <= 0) {
-                            return clearInterval(interval);
-                        }
-
-                        const particleCount = 50 * (timeLeft / duration);
-
-                        // Emit confetti from slightly left and slightly right of center
-                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#FFD700', '#FFA500', '#FF4500'] }));
-                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#FFD700', '#FFA500', '#FF4500'] }));
-                    }, 250);
-                }
-            });
-        }, { threshold: 0.5 }); // Triggers when 50% of the card is visible
-
-        if (targetCard) {
-            confettiObserver.observe(targetCard);
-        }
-
-    </script>
+    <script src="assets/site.js"></script>
 </body>
 
 </html>
