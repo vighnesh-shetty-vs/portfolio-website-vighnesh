@@ -1,0 +1,4 @@
+# GitHub Pages: keep repo-only docs off the public site
+exclude:
+  - CHANGELOG.md
+  - IMPROVEMENT_PLAYBOOK.md
