@@ -17,6 +17,28 @@ Every change to the portfolio, newest first. Automated runs follow `IMPROVEMENT_
 | `site-2026-10-18-single-cv` | One CV in EN + FR (commit `d2521c5`) |
 | `site-2026-10-20-baseline` | Benchmark title fix + this changelog: starting point for weekly runs |
 
+## 2026-10-26 · Styled 404 page and sitemap
+- **Branch / PR:** auto/2026-10-26-404-sitemap · see PR
+- **What changed:**
+  - New `404.html` in the site's dark/glass style: "Row not found" heading, four quick links
+    (home, bank-analytics case study, projects, CV EN/FR) and the contact email. `noindex`, and
+    all links are root-relative (`/portfolio-website-vighnesh/...`) so it works at any missing URL depth.
+  - New `sitemap.xml` listing the homepage and the case study.
+  - `robots.txt` skipped on purpose: crawlers only read it at the domain root
+    (`vighnesh-shetty-vs.github.io/robots.txt`), which belongs to a different repo. Backlog line updated.
+- **Files:** `404.html`, `sitemap.xml`, `IMPROVEMENT_PLAYBOOK.md`, `CHANGELOG.md`
+- **Why / inspiration:** Backlog item. Stripe's 404 (https://stripe.com) turns a dead end into a
+  short list of where visitors usually want to go; re-implemented here with this site's own pages.
+- **Sites reviewed:** https://brittanychiang.com/ (engineer portfolio), https://stripe.com/this-page-does-not-exist
+  (404 handling), https://linear.app/this-page-does-not-exist (redirects to login: nothing to take),
+  https://ria08.github.io/ria-portfolio/ (data-analyst portfolio leading each project with the business impact)
+- **Checks:** served at `/portfolio-website-vighnesh/` (same path as GitHub Pages); index, case study and
+  404 at 1280px and 375px: no horizontal scroll, no broken local links or images, all `.fade-up` cards
+  visible after jumping to each section, console shows only the existing Tailwind-CDN warning.
+  New files total ~6 KB.
+- **Revert:** Revert button on the PR, or `git revert -m 1 <merge-commit>`; full rollback to any
+  earlier state with the release tags listed above.
+
 ## 2026-10-20 · Benchmark title, changelog and weekly process
 - **What changed:** Benchmark Computer Solutions role renamed "Business Analyst" to match the CV;
   added `CHANGELOG.md`, `IMPROVEMENT_PLAYBOOK.md` and `_config.yml` (keeps both files off the

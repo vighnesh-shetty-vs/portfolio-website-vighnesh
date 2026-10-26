@@ -62,7 +62,8 @@ comes from reviewing other people's and companies' portfolio and product sites.
       images (target under 5 MB each folder; keep originals out of the repo only if not linked).
 - [ ] Case-study pages for the credit scorecard and the fraud engine, in the style of
       `case-bank-analytics.html` (facts from those repos' READMEs).
-- [ ] `robots.txt`, `sitemap.xml` and a styled `404.html`.
+- [x] `sitemap.xml` and a styled `404.html` (2026-10-26). `robots.txt` only works at the domain
+      root, so it would have to live in a `vighnesh-shetty-vs.github.io` repo; needs Vighnesh.
 - [ ] Print stylesheet so the homepage prints as a clean 2-page summary.
 - [ ] Optional light theme toggle (dark stays the default).
 - [ ] A small "Skills × evidence" matrix linking each skill to the project that proves it.
