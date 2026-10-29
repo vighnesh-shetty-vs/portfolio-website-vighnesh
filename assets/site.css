@@ -191,3 +191,10 @@ details[open] .chev { transform: rotate(180deg); }
 .prose-case ul { list-style: disc; padding-left: 1.25rem; color: rgba(255, 255, 255, 0.65); line-height: 1.75; margin-bottom: 1rem; }
 .prose-case li { margin-bottom: 0.4rem; }
 .prose-case code { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; color: var(--accent); background: rgba(0, 229, 255, 0.06); padding: 1px 6px; border-radius: 6px; }
+
+/* Launch videos: muted preview loops on cards, full version with sound in the modal */
+.launch-media { aspect-ratio: 16 / 9; width: 100%; }
+.launch-media video { display: block; background: #000; }
+.launch-play span { opacity: .9; transition: opacity .2s, transform .2s; }
+.launch-play:hover span, .launch-play:focus-visible span { opacity: 1; transform: translateY(-2px); border-color: rgba(0, 229, 255, .6); }
+.launch-hero { box-shadow: 0 30px 80px rgba(0, 0, 0, .55), 0 0 0 1px rgba(0, 229, 255, .12); }

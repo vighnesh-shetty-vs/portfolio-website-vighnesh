@@ -17,6 +17,15 @@ Every change to the portfolio, newest first. Automated runs follow `IMPROVEMENT_
 | `site-2026-10-18-single-cv` | One CV in EN + FR (commit `d2521c5`) |
 | `site-2026-10-20-baseline` | Benchmark title fix + this changelog: starting point for weekly runs |
 
+## 2026-10-30 · Launch videos for the flagship case and the 4 featured projects
+- **What changed:** each featured project card now opens with a ~20 s launch video (muted loop that
+  plays only while on screen, loaded lazily); "Watch with sound" opens the full version in the modal.
+  The flagship case study gets its own video above the findings explorer. Reduced-motion visitors
+  see the poster frame only. Videos built from each repo's own results and screenshots.
+- **Files:** `index.html`, `assets/site.css`, `assets/site.js`, `assets/LaunchVideos/*` (11 MB total;
+  each card loads a ~0.3 MB preview, the full ~1.8 MB file only on click)
+- **Revert:** `git revert <merge-commit>`
+
 ## 2026-10-20 · Benchmark title, changelog and weekly process
 - **What changed:** Benchmark Computer Solutions role renamed "Business Analyst" to match the CV;
   added `CHANGELOG.md`, `IMPROVEMENT_PLAYBOOK.md` and `_config.yml` (keeps both files off the

@@ -84,6 +84,14 @@ function openGallery(mediaUrls) {
     }, 10);
 }
 
+// Launch video with sound (the click is the user gesture that allows audio)
+function openVideo(url) {
+    openGallery([url]);
+    const v = galleryContainer.querySelector('video');
+    if (v) { v.muted = false; v.loop = false; v.play().catch(() => { v.muted = true; v.play(); }); }
+    document.querySelectorAll('video.launch-preview').forEach(p => p.pause());
+}
+
 function closeGallery() {
     if (!modal || modal.classList.contains('hidden')) return;
     modal.classList.remove('opacity-100');
@@ -149,4 +157,23 @@ if (confettiTarget && typeof confetti === 'function' && !reducedMotion) {
         }, 250);
     }, { threshold: 0.5 });
     io.observe(confettiTarget);
+}
+
+// Launch video previews: load only when near the screen, play while visible, pause off-screen.
+// Reduced-motion users get the poster frame and can still open the full video.
+const previews = Array.from(document.querySelectorAll('video.launch-preview'));
+if (previews.length && !reducedMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+            const v = e.target;
+            const modalOpen = modal && !modal.classList.contains('hidden');
+            if (e.isIntersecting && !modalOpen) {
+                if (!v.src) v.src = v.dataset.src;
+                v.play().catch(() => {});
+            } else {
+                v.pause();
+            }
+        }
+    }, { threshold: 0.35 });
+    previews.forEach(v => io.observe(v));
 }

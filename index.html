@@ -250,6 +250,16 @@
                 </p>
             </div>
 
+            <div class="launch-media launch-hero relative glass rounded-3xl overflow-hidden mb-10 fade-up max-w-4xl mx-auto">
+                <video class="launch-preview w-full h-full object-cover" muted loop playsinline preload="none"
+                    poster="./assets/LaunchVideos/bank-analytics.jpg" data-src="./assets/LaunchVideos/bank-analytics-preview.mp4"
+                    aria-label="Launch video: retail bank analytics case study"></video>
+                <button onclick="openVideo('./assets/LaunchVideos/bank-analytics.mp4')" aria-label="Watch the bank analytics launch video with sound"
+                    class="launch-play absolute inset-0 z-10 flex items-end justify-end p-5">
+                    <span class="glass flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white"><i class="fa-solid fa-volume-high text-accent"></i> The case in 22 seconds &middot; watch with sound</span>
+                </button>
+            </div>
+
             <div class="glass rounded-3xl p-6 md:p-10 fade-up" data-explorer>
                 <div class="grid lg:grid-cols-5 gap-10">
                     <div class="lg:col-span-3">
@@ -356,11 +366,14 @@
             <div class="grid md:grid-cols-2 gap-8">
 
                 <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/CreditScorecard/model_charts.png" alt="Credit scorecard validation charts" loading="lazy"
-                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                        <span class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">Credit risk</span>
+                    <div class="launch-media relative group bg-black overflow-hidden">
+                        <video class="launch-preview w-full h-full object-cover" muted loop playsinline preload="none"
+                            poster="./assets/LaunchVideos/credit-scorecard.jpg" data-src="./assets/LaunchVideos/credit-scorecard-preview.mp4"
+                            aria-label="Launch video: credit card default scorecard"></video>
+                        <button onclick="openVideo('./assets/LaunchVideos/credit-scorecard.mp4')" aria-label="Watch the credit scorecard launch video with sound"
+                            class="launch-play absolute inset-0 z-10 flex items-end justify-end p-4">
+                            <span class="glass flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-white"><i class="fa-solid fa-volume-high text-accent"></i> Watch with sound</span>
+                        </button>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Credit Card Default Scorecard</h3>
@@ -384,15 +397,14 @@
                 </article>
 
                 <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/Real_Time_Financial_Fraud_Detection_Engine/poster.png" alt="Fraud detection dashboard" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <button onclick="openGallery(['./assets/Real_Time_Financial_Fraud_Detection_Engine/Project_Demo_Credit.mp4'])" aria-label="Play fraud detection demo video"
-                            class="absolute inset-0 z-10 flex items-center justify-center">
-                            <span class="w-14 h-14 rounded-full bg-black/60 border border-white/30 flex items-center justify-center text-white text-xl"><i class="fa-solid fa-play"></i></span>
+                    <div class="launch-media relative group bg-black overflow-hidden">
+                        <video class="launch-preview w-full h-full object-cover" muted loop playsinline preload="none"
+                            poster="./assets/LaunchVideos/card-fraud.jpg" data-src="./assets/LaunchVideos/card-fraud-preview.mp4"
+                            aria-label="Launch video: card fraud detection engine"></video>
+                        <button onclick="openVideo('./assets/LaunchVideos/card-fraud.mp4')" aria-label="Watch the fraud detection launch video with sound"
+                            class="launch-play absolute inset-0 z-10 flex items-end justify-end p-4">
+                            <span class="glass flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-white"><i class="fa-solid fa-volume-high text-accent"></i> Watch with sound</span>
                         </button>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                        <span class="absolute top-4 left-4 z-20 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">Fraud &middot; ML</span>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Card Fraud Detection Engine</h3>
@@ -416,11 +428,14 @@
                 </article>
 
                 <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/ABTest/experiment_charts.png" alt="A/B test result charts" loading="lazy"
-                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                        <span class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">Experimentation</span>
+                    <div class="launch-media relative group bg-black overflow-hidden">
+                        <video class="launch-preview w-full h-full object-cover" muted loop playsinline preload="none"
+                            poster="./assets/LaunchVideos/onboarding-ab-test.jpg" data-src="./assets/LaunchVideos/onboarding-ab-test-preview.mp4"
+                            aria-label="Launch video: neobank onboarding A/B test"></video>
+                        <button onclick="openVideo('./assets/LaunchVideos/onboarding-ab-test.mp4')" aria-label="Watch the A/B test launch video with sound"
+                            class="launch-play absolute inset-0 z-10 flex items-end justify-end p-4">
+                            <span class="glass flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-white"><i class="fa-solid fa-volume-high text-accent"></i> Watch with sound</span>
+                        </button>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">Neobank Onboarding A/B Test</h3>
@@ -444,11 +459,14 @@
                 </article>
 
                 <article class="premium-card glass rounded-3xl overflow-hidden fade-up flex flex-col">
-                    <div class="h-48 w-full relative group bg-black/50 overflow-hidden">
-                        <img src="./assets/DocuMind/risk_audit_1.png" alt="DocuMind contract risk audit screen" loading="lazy"
-                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
-                        <span class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-mono text-white/80">GenAI</span>
+                    <div class="launch-media relative group bg-black overflow-hidden">
+                        <video class="launch-preview w-full h-full object-cover" muted loop playsinline preload="none"
+                            poster="./assets/LaunchVideos/documind.jpg" data-src="./assets/LaunchVideos/documind-preview.mp4"
+                            aria-label="Launch video: DocuMind contract risk engine"></video>
+                        <button onclick="openVideo('./assets/LaunchVideos/documind.mp4')" aria-label="Watch the DocuMind launch video with sound"
+                            class="launch-play absolute inset-0 z-10 flex items-end justify-end p-4">
+                            <span class="glass flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-white"><i class="fa-solid fa-volume-high text-accent"></i> Watch with sound</span>
+                        </button>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold mb-3">DocuMind: Contract Risk &amp; Document Q&amp;A</h3>
