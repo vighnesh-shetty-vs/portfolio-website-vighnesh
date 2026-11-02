@@ -17,6 +17,13 @@ Every change to the portfolio, newest first. Automated runs follow `IMPROVEMENT_
 | `site-2026-10-18-single-cv` | One CV in EN + FR (commit `d2521c5`) |
 | `site-2026-10-20-baseline` | Benchmark title fix + this changelog: starting point for weekly runs |
 
+## 2026-11-02 · Launch video playback fixes
+- **What changed:** previews restart after the "Watch with sound" player closes (they stayed frozen
+  before); previews blocked by autoplay rules retry on the next tap or key press; `site.js` and
+  `site.css` links carry a version so a cached old script can't leave the videos on their poster.
+- **Files:** `index.html`, `assets/site.js`
+- **Revert:** `git revert <commit>`
+
 ## 2026-10-30 · Launch videos for the flagship case and the 4 featured projects
 - **What changed:** each featured project card now opens with a ~20 s launch video (muted loop that
   plays only while on screen, loaded lazily); "Watch with sound" opens the full version in the modal.

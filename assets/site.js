@@ -102,6 +102,7 @@ function closeGallery() {
         document.body.style.overflow = '';
         galleryContainer.innerHTML = '';
         lastFocus?.focus();
+        resumePreviews();
     }, 300);
 }
 
@@ -162,14 +163,33 @@ if (confettiTarget && typeof confetti === 'function' && !reducedMotion) {
 // Launch video previews: load only when near the screen, play while visible, pause off-screen.
 // Reduced-motion users get the poster frame and can still open the full video.
 const previews = Array.from(document.querySelectorAll('video.launch-preview'));
+const onScreenPreviews = new Set();
+
+function playPreview(v) {
+    if (!v.src) v.src = v.dataset.src;
+    v.muted = true;
+    v.play().catch((err) => {
+        // Autoplay blocked (e.g. battery saver): try again on the visitor's next tap or key press
+        if (err.name !== 'NotAllowedError') return;
+        document.addEventListener('pointerdown', resumePreviews, { once: true });
+        document.addEventListener('keydown', resumePreviews, { once: true });
+    });
+}
+
+// Restarts the on-screen previews; the observer below won't fire again for cards that never left the screen
+function resumePreviews() {
+    if (modal && !modal.classList.contains('hidden')) return;
+    onScreenPreviews.forEach(playPreview);
+}
+
 if (previews.length && !reducedMotion && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
         for (const e of entries) {
             const v = e.target;
             const modalOpen = modal && !modal.classList.contains('hidden');
+            if (e.isIntersecting) onScreenPreviews.add(v); else onScreenPreviews.delete(v);
             if (e.isIntersecting && !modalOpen) {
-                if (!v.src) v.src = v.dataset.src;
-                v.play().catch(() => {});
+                playPreview(v);
             } else {
                 v.pause();
             }
